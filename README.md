@@ -1,19 +1,18 @@
+# 🚀 Welcome to coding-interview-frontend
 
-# 🚀 Bienvenido al coding-interview-frontend
-
-Este projeto é uma aplicação Flutter desenvolvida como parte de um processo de entrevista técnica da El Dorado. A aplicação demonstra boas práticas de desenvolvimento mobile utilizando Clean Architecture e testes unitários.
+This project is a Flutter application developed as part of a technical interview process for El Dorado. The application demonstrates mobile development best practices using Clean Architecture and unit testing.
 
 ---
 
 ## ✨ Features
 
-- 🏗️ **Clean Architecture**: Estrutura organizada em camadas para melhor manutenibilidade
-- 🧪 **Testes Unitários**: Cobertura de testes para garantir qualidade do código
-- 📱 **Interface Responsiva**: Design adaptável para diferentes tamanhos de tela
-- 🔄 **Gerenciamento de Estado**: Implementação eficiente de gerenciamento de estado
-- 🌐 **Integração com APIs**: Comunicação com serviços web
+- 🏗️ **Clean Architecture**: Organized layer structure for better maintainability
+- 🧪 **Unit Testing**: Test coverage to ensure code quality
+- 📱 **Responsive Interface**: Adaptive design for different screen sizes
+- 🔄 **State Management**: Efficient state management implementation
+- 🌐 **API Integration**: Communication with web services
 
-## 📋 Versões do Projeto
+## 📋 Project Versions
 
 - 🎯 **Flutter**: 3.32.8
 - 🎨 **Dart**: 3.8.1
@@ -21,33 +20,34 @@ Este projeto é uma aplicação Flutter desenvolvida como parte de um processo d
 - 🍎 **Pod**: 1.14.3
 - ⚡ **FlutterGen**: 5.11.0
 
-## 📚 Bibliotecas Utilizadas
+## 📚 Libraries Used
 
-- 🎨 **[fluttergen](https://pub.dev/packages/flutter_gen)**: Gerador automático de código para acesso rápido aos assets do projeto (imagens, fontes, cores, etc.)
-- 💉 **[get_it](https://pub.dev/packages/get_it)**: Container de injeção de dependência simples e poderoso para Flutter/Dart, permitindo gerenciamento eficiente de dependências
-- 🌐 **[dio](https://pub.dev/packages/dio)**: Cliente HTTP robusto para Dart com suporte a interceptors, request/response transformation, timeout, e muito mais
-- 📄 **[json_annotation](https://pub.dev/packages/json_annotation)**: Anotações para geração automática de código de serialização/deserialização JSON
-- ❄️ **[freezed_annotation](https://pub.dev/packages/freezed_annotation)**: Anotações para geração de classes imutáveis com copyWith, toString, equality e pattern matching
-- 🌐 **[flutter_pretty_dio_logger](https://pub.dev/packages/flutter_pretty_dio_logger)**: Logger para Dio
+- 🎨 **[fluttergen](https://pub.dev/packages/flutter_gen)**: Automatic code generator for quick access to project assets (images, fonts, colors, etc.)
+- 💉 **[get_it](https://pub.dev/packages/get_it)**: Simple and powerful dependency injection container for Flutter/Dart, enabling efficient dependency management
+- 🌐 **[dio](https://pub.dev/packages/dio)**: Robust HTTP client for Dart with support for interceptors, request/response transformation, timeout, and much more
+- 📄 **[json_annotation](https://pub.dev/packages/json_annotation)**: Annotations for automatic generation of JSON serialization/deserialization code
+- ❄️ **[freezed_annotation](https://pub.dev/packages/freezed_annotation)**: Annotations for generating immutable classes with copyWith, toString, equality and pattern matching
+- 🌐 **[flutter_pretty_dio_logger](https://pub.dev/packages/flutter_pretty_dio_logger)**: Logger for Dio
 - 📝 **[logger](https://pub.dev/packages/logger)**: Logger for App
 
-## 🚀 Como Executar
+## 🚀 How to Run
 
-1. **Clone o repositório**
+1. **Clone the repository**
    ```bash
    git clone https://github.com/FelipeOFF/coding-interview-frontend.git
    ```
 
-2. **Instale as dependências**
+2. **Install dependencies**
    ```bash
    flutter pub get
    ```
 
-3. **Execute a aplicação**
+3. **Run the application**
    ```bash
    flutter run
    ```
-## 🧪 Executar Testes
+
+## 🧪 Run Tests
 
 ```bash
 flutter test
