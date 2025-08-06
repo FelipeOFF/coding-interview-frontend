@@ -28,6 +28,8 @@ Este projeto é uma aplicação Flutter desenvolvida como parte de um processo d
 - 🌐 **[dio](https://pub.dev/packages/dio)**: Cliente HTTP robusto para Dart com suporte a interceptors, request/response transformation, timeout, e muito mais
 - 📄 **[json_annotation](https://pub.dev/packages/json_annotation)**: Anotações para geração automática de código de serialização/deserialização JSON
 - ❄️ **[freezed_annotation](https://pub.dev/packages/freezed_annotation)**: Anotações para geração de classes imutáveis com copyWith, toString, equality e pattern matching
+- 🌐 **[flutter_pretty_dio_logger](https://pub.dev/packages/flutter_pretty_dio_logger)**: Logger para Dio
+- 📝 **[logger](https://pub.dev/packages/logger)**: Logger for App
 
 ## 🚀 Como Executar
 
