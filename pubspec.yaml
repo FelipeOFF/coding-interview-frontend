@@ -1,6 +1,6 @@
 name: coding_interview_frontend
 description: "This is a interview project for El Salvador company"
-publish_to: 'eldorado.io'
+publish_to: 'none'
 
 version: 1.0.0+1
 

@@ -9,5 +9,5 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> {
   @override
-  Widget build(BuildContext context) => MaterialApp();
+  Widget build(BuildContext context) => const MaterialApp();
 }
