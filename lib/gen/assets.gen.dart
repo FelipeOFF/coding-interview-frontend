@@ -11,9 +11,47 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsCriptoCurrenciesGen {
+  const $AssetsCriptoCurrenciesGen();
+
+  /// File path: assets/cripto_currencies/TATUM-TRON-USDT.png
+  AssetGenImage get tatumTronUsdt =>
+      const AssetGenImage('assets/cripto_currencies/TATUM-TRON-USDT.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [tatumTronUsdt];
+}
+
+class $AssetsFiatCurrenciesGen {
+  const $AssetsFiatCurrenciesGen();
+
+  /// File path: assets/fiat_currencies/BRL.png
+  AssetGenImage get brl =>
+      const AssetGenImage('assets/fiat_currencies/BRL.png');
+
+  /// File path: assets/fiat_currencies/COP.png
+  AssetGenImage get cop =>
+      const AssetGenImage('assets/fiat_currencies/COP.png');
+
+  /// File path: assets/fiat_currencies/PEN.png
+  AssetGenImage get pen =>
+      const AssetGenImage('assets/fiat_currencies/PEN.png');
+
+  /// File path: assets/fiat_currencies/VES.png
+  AssetGenImage get ves =>
+      const AssetGenImage('assets/fiat_currencies/VES.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [brl, cop, pen, ves];
+}
+
 class Assets {
   const Assets._();
 
+  static const $AssetsCriptoCurrenciesGen criptoCurrencies =
+      $AssetsCriptoCurrenciesGen();
+  static const $AssetsFiatCurrenciesGen fiatCurrencies =
+      $AssetsFiatCurrenciesGen();
   static const AssetGenImage screen1 = AssetGenImage('assets/screen_1.jpg');
   static const AssetGenImage sheet1 = AssetGenImage('assets/sheet_1.jpg');
   static const AssetGenImage sheet2 = AssetGenImage('assets/sheet_2.jpg');

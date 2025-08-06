@@ -19,5 +19,5 @@ This project is a interview project from el dorado
 
 ## Librries
 
-- fluttergen: This is a library that can auto generate a rapid access to the project assets.
+- [fluttergen](https://pub.dev/packages/flutter_gen): This is a library that can auto generate a rapid access to the project assets.
 - 

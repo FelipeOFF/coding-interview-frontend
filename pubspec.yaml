@@ -29,6 +29,11 @@ flutter:
     - assets/screen_1.jpg
     - assets/sheet_1.jpg
     - assets/sheet_2.jpg
+    - assets/fiat_currencies/BRL.png
+    - assets/fiat_currencies/COP.png
+    - assets/fiat_currencies/PEN.png
+    - assets/fiat_currencies/VES.png
+    - assets/cripto_currencies/TATUM-TRON-USDT.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
