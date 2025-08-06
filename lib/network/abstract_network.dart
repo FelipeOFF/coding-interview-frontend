@@ -6,13 +6,13 @@ import 'package:dio/io.dart';
 import 'package:flutter_pretty_dio_logger/flutter_pretty_dio_logger.dart';
 
 abstract class AbstractNetwork extends DioForNative {
-  AbstractNetwork({required this.config}) : super() {
+  AbstractNetwork() : super() {
     options = getBaseOptions();
     interceptors.addAll(_getInterceptors().whereType());
   }
 
   abstract final Url url;
-  final AppConfig config;
+  abstract final AppConfig config;
 
   BaseOptions getBaseOptions() => BaseOptions(
     baseUrl: "${url.baseHost}${url.port != null ? ":${url.port}" : ""}",
