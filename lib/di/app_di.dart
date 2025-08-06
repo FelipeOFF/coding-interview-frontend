@@ -1,5 +1,6 @@
 import 'package:coding_interview_frontend/configurations/di/app_config_binding.dart';
 import 'package:coding_interview_frontend/di/abstract_binding.dart';
+import 'package:coding_interview_frontend/di/domain/domain_binding.dart';
 import 'package:coding_interview_frontend/di/repository/repository_binding.dart';
 import 'package:get_it/get_it.dart';
 
@@ -11,6 +12,7 @@ class AppDI {
   static final List<AbstractBinding> _listOfBasicInfrastructure = [
     AppConfigBinding(),
     RepositoryBinding(),
+    DomainBinding(),
   ];
 
   static final List<AbstractBinding> _getListOfBiding = [
