@@ -1,5 +1,7 @@
 # 🚀 Welcome to coding-interview-frontend
 
+[![Test Suite](https://github.com/FelipeOFF/coding-interview-frontend/actions/workflows/test.yaml/badge.svg?branch=main)](https://github.com/FelipeOFF/coding-interview-frontend/actions/workflows/test.yaml)
+
 This project is a Flutter application developed as part of a technical interview process for El Dorado. The application demonstrates mobile development best practices using Clean Architecture and unit testing.
 
 ---
