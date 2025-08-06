@@ -157,12 +157,16 @@ void main() {
 
           // Assert
           expect(logger, isA<PrettyDioLogger>());
-          // Note: PrettyDioLogger properties are not accessible, so we test the type
+          // Note: PrettyDioLogger properties are not accessible, so we test
+          // the type
         },
       );
 
       test(
-        'should return PrettyDioLogger with correct configuration when logging is disabled',
+        '''
+          should return PrettyDioLogger with correct configuration 
+          when logging is disabled
+        ''',
         () {
           // Arrange
           when(() => mockAppConfig.isLoggingEnable).thenReturn(false);
@@ -252,7 +256,7 @@ void main() {
     group('Edge Cases', () {
       test('should handle very long baseHost', () {
         // Arrange
-        final longHost = 'https://' + 'a' * 1000 + '.com';
+        final longHost = 'https://${'a' * 1000}.com';
         when(() => mockUrl.baseHost).thenReturn(longHost);
         when(() => mockUrl.port).thenReturn(null);
         when(() => mockAppConfig.isLoggingEnable).thenReturn(true);
@@ -369,10 +373,11 @@ class TestNetwork extends AbstractNetwork {
 
 class TestNetworkWithAdditionalInterceptors extends TestNetwork {
   TestNetworkWithAdditionalInterceptors(
-    Url url,
-    AppConfig config,
+    super.url,
+    super.config,
     this._additionalInterceptors,
-  ) : super(url, config);
+  );
+
   final List<Interceptor?> _additionalInterceptors;
 
   @override

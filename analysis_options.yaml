@@ -18,7 +18,9 @@ analyzer:
     - "build/**"
     - ".dart_tool/**"
     - "lib/gen/**"
-  
+    - "lib/res/**"
+    - "lib/generated/**"
+
   # Enable strong mode and implicit casts/dynamic warnings
   strong-mode:
     implicit-casts: false
