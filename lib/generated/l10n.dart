@@ -73,6 +73,11 @@ class AppS {
   String get nothing {
     return Intl.message('-', name: 'nothing', desc: '', args: []);
   }
+
+  /// `Close`
+  String get close {
+    return Intl.message('Close', name: 'close', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppS> {

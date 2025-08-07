@@ -2,5 +2,6 @@
   "@@locale": "en",
   "ops": "Ops...",
   "somethingWrongHappenedPleaseTryAgainLater": "Something wrong happened, please try again later",
-  "nothing": "-"
+  "nothing": "-",
+  "close": "Close"
 }
