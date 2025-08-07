@@ -1,3 +1,6 @@
 {
-  "@@locale": "es"
+  "@@locale": "es",
+  "ops": "Ups...",
+  "somethingWrongHappenedPleaseTryAgainLater": "Algo salió mal, por favor inténtalo de nuevo más tarde",
+  "nothing": "-"
 }

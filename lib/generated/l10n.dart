@@ -53,6 +53,26 @@ class AppS {
   static AppS? maybeOf(BuildContext context) {
     return Localizations.of<AppS>(context, AppS);
   }
+
+  /// `Ops...`
+  String get ops {
+    return Intl.message('Ops...', name: 'ops', desc: '', args: []);
+  }
+
+  /// `Something wrong happened, please try again later`
+  String get somethingWrongHappenedPleaseTryAgainLater {
+    return Intl.message(
+      'Something wrong happened, please try again later',
+      name: 'somethingWrongHappenedPleaseTryAgainLater',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `-`
+  String get nothing {
+    return Intl.message('-', name: 'nothing', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppS> {
