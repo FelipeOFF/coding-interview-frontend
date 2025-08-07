@@ -1,6 +1,5 @@
 import 'package:coding_interview_frontend/common/message/generic_message.dart';
 import 'package:coding_interview_frontend/domain/app_error.dart';
-import 'package:coding_interview_frontend/generated/l10n.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
