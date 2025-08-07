@@ -10,6 +10,7 @@ import 'package:rx_notifier/rx_notifier.dart';
 // Mock classes
 class MockAbstractUseCase<P, R> extends Mock implements AbstractUseCase<P, R> {}
 
+// ignore: avoid_implementing_value_types
 class MockAppError extends Mock implements AppError {}
 
 class MockGenericMessage extends Mock implements GenericMessage {}
@@ -90,7 +91,7 @@ void main() {
         const expectedOutput = 'test output';
         when(
           () => mockUseCase.call(input),
-        ).thenAnswer((_) async => Right(expectedOutput));
+        ).thenAnswer((_) async => const Right(expectedOutput));
 
         // Act
         final result = await controller.execSingle(
@@ -110,7 +111,7 @@ void main() {
         const expectedOutput = 'test output';
         when(
           () => mockUseCase.call(input),
-        ).thenAnswer((_) async => Right(expectedOutput));
+        ).thenAnswer((_) async => const Right(expectedOutput));
 
         // Track loading states
         final loadingStates = <bool?>[];
@@ -120,7 +121,7 @@ void main() {
         });
 
         // Act
-        await controller.execSingle(input, mockUseCase, showLoading: true);
+        await controller.execSingle(input, mockUseCase);
 
         // Assert
         expect(loadingStates, contains(true));
@@ -135,7 +136,7 @@ void main() {
         const expectedOutput = 'test output';
         when(
           () => mockUseCase.call(input),
-        ).thenAnswer((_) async => Right(expectedOutput));
+        ).thenAnswer((_) async => const Right(expectedOutput));
 
         final initialLoading = controller.isLoading;
 
@@ -148,7 +149,6 @@ void main() {
     });
 
     group('Disposal', () {
-
       test('should handle disposal when notifiers are null', () async {
         // Act & Assert - Should not throw any exception
         await expectLater(controller.dispose(), completes);

@@ -29,6 +29,7 @@ class TestUseCaseWithKey extends AbstractUseCase<String, int> {
 
 // Extension mock for DioException
 class MockDioExceptionExtension extends Mock {
+  // ignore: avoid_implementing_value_types
   Future<AppError> asAppError();
 }
 
