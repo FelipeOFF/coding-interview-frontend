@@ -1,6 +1,5 @@
 import 'package:coding_interview_frontend/domain/abstract_use_case.dart';
 import 'package:coding_interview_frontend/domain/app_error.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:mocktail/mocktail.dart';
@@ -27,12 +26,6 @@ class TestUseCaseWithKey extends AbstractUseCase<String, int> {
   @override
   Future<int> execute(String param) => _executeFunction(param);
 }
-
-// Mock classes
-class MockDioException extends Mock implements DioException {}
-
-// ignore: avoid_implementing_value_types
-class MockAppError extends Mock implements AppError {}
 
 // Extension mock for DioException
 class MockDioExceptionExtension extends Mock {

@@ -4,9 +4,6 @@ import 'package:coding_interview_frontend/generated/l10n.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
-// Mock classes
-class MockAppS extends Mock implements AppS {}
-
 // ignore: avoid_implementing_value_types
 class MockAppError extends Mock implements AppError {}
 
