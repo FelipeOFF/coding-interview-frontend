@@ -42,13 +42,6 @@ class MockDioExceptionExtension extends Mock {
 void main() {
   group('AbstractUseCase', () {
     late TestUseCase useCase;
-    late MockDioException mockDioException;
-    late MockAppError mockAppError;
-
-    setUp(() {
-      mockDioException = MockDioException();
-      mockAppError = MockAppError();
-    });
 
     group('key property', () {
       test('returns null by default', () {
