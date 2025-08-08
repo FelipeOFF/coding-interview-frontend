@@ -14,6 +14,7 @@ class AppNavigation {
 
   GoRouter get route => GoRouter(
     navigatorKey: root,
+    initialLocation: AppRouter.home,
     routes: [
       GoRoute(
         path: AppRouter.initialRouter,

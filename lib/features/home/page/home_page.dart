@@ -14,7 +14,6 @@ class _HomePageState extends BaseStatePage<HomePage, HomeController> {
   Widget build(BuildContext context) => Scaffold(
     body: Stack(
       children: [
-        // Custom background with circular shape
         CustomPaint(
           size: Size(
             MediaQuery.of(context).size.width,
@@ -22,10 +21,7 @@ class _HomePageState extends BaseStatePage<HomePage, HomeController> {
           ),
           painter: CircularBackgroundPainter(),
         ),
-        // Your content goes here
-        Container(
-          // Add your page content here
-        ),
+        Container(),
       ],
     ),
   );
@@ -35,16 +31,13 @@ class CircularBackgroundPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color =
-          const Color(0xFFFFA726) // Orange color similar to your image
+      ..color = const Color(0xFFFFA726)
       ..style = PaintingStyle.fill;
 
     final backgroundPaint = Paint()
-      ..color =
-          const Color(0xFFE8F4F8) // Light blue background
+      ..color = const Color(0xFFE8F4F8)
       ..style = PaintingStyle.fill;
 
-    // Fill the entire canvas with light blue background
     canvas.drawRect(
       Rect.fromLTWH(0, 0, size.width, size.height),
       backgroundPaint,
@@ -52,22 +45,17 @@ class CircularBackgroundPainter extends CustomPainter {
 
     final path = Path();
 
-    // Create a large circle that extends from the right side
-    // Adjust these values to match your design
-    final centerX = size.width * 0.75; // Position circle more to the right
-    final centerY = size.height * 0.3; // Position circle in upper portion
-    final radius = size.width * 0.8; // Large radius to create the curved edge
+    final centerX = size.width * 1.8;
+    final centerY = size.height * 0.4;
+    final radius = size.width * 1.3;
 
-    // Create the circular path
     path.addOval(
       Rect.fromCircle(center: Offset(centerX, centerY), radius: radius),
     );
 
-    // Clip to only show the part that intersects with the screen
     final clipPath = Path()
       ..addRect(Rect.fromLTWH(0, 0, size.width, size.height));
 
-    // Use the intersection of the circle and screen bounds
     final finalPath = Path.combine(PathOperation.intersect, path, clipPath);
 
     canvas.drawPath(finalPath, paint);
