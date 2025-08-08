@@ -3,5 +3,7 @@
   "ops": "Ups...",
   "somethingWrongHappenedPleaseTryAgainLater": "Algo salió mal, por favor inténtalo de nuevo más tarde",
   "nothing": "-",
-  "close": "Close"
+  "close": "Close",
+  "have": "TENGO",
+  "want": "QUIERO"
 }

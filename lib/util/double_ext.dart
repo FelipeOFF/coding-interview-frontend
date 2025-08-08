@@ -14,4 +14,6 @@ class DoubleUtil {
 extension DoubleExt on double {
   String get toAppMoneyFraction =>
       DoubleUtil.toAppMoneyFractionNumberFormat.format(this);
+
+  double lerpDouble(double a, double b) => a + (b - a) * this;
 }

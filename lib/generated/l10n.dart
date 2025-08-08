@@ -78,6 +78,16 @@ class AppS {
   String get close {
     return Intl.message('Close', name: 'close', desc: '', args: []);
   }
+
+  /// `HAVE`
+  String get have {
+    return Intl.message('HAVE', name: 'have', desc: '', args: []);
+  }
+
+  /// `WANT`
+  String get want {
+    return Intl.message('WANT', name: 'want', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppS> {

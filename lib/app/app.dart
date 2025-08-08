@@ -1,3 +1,4 @@
+import 'package:coding_interview_frontend/common/theme/app_theme.dart';
 import 'package:coding_interview_frontend/generated/l10n.dart';
 import 'package:coding_interview_frontend/navigation/app_navigation.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,7 @@ class _AppState extends State<App> {
       GlobalWidgetsLocalizations.delegate,
       GlobalCupertinoLocalizations.delegate,
     ],
+    theme: AppTheme.whiteTheme,
     supportedLocales: AppS.delegate.supportedLocales,
     routerConfig: AppNavigation.instance.route,
   );
