@@ -51,6 +51,7 @@ flutter:
     - assets/fiat_currencies/PEN.png
     - assets/fiat_currencies/VES.png
     - assets/cripto_currencies/TATUM-TRON-USDT.png
+    - assets/el_dorado_logo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

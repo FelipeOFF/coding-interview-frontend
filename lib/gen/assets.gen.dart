@@ -50,6 +50,9 @@ class Assets {
 
   static const $AssetsCriptoCurrenciesGen criptoCurrencies =
       $AssetsCriptoCurrenciesGen();
+  static const AssetGenImage elDoradoLogo = AssetGenImage(
+    'assets/el_dorado_logo.png',
+  );
   static const $AssetsFiatCurrenciesGen fiatCurrencies =
       $AssetsFiatCurrenciesGen();
   static const AssetGenImage screen1 = AssetGenImage('assets/screen_1.jpg');
@@ -57,7 +60,12 @@ class Assets {
   static const AssetGenImage sheet2 = AssetGenImage('assets/sheet_2.jpg');
 
   /// List of all assets
-  static List<AssetGenImage> get values => [screen1, sheet1, sheet2];
+  static List<AssetGenImage> get values => [
+    elDoradoLogo,
+    screen1,
+    sheet1,
+    sheet2,
+  ];
 }
 
 class AssetGenImage {
