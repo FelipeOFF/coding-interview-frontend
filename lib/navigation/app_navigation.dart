@@ -1,4 +1,5 @@
-import 'package:coding_interview_frontend/features/splash/splash_page.dart';
+import 'package:coding_interview_frontend/features/home/page/home_page.dart';
+import 'package:coding_interview_frontend/features/splash/page/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -18,6 +19,10 @@ class AppNavigation {
         path: AppRouter.initialRouter,
         builder: (context, state) => const SplashPage(),
       ),
+      GoRoute(
+        path: AppRouter.home,
+        builder: (context, state) => const HomePage(),
+      ),
     ],
   );
 }
@@ -26,4 +31,5 @@ class AppRouter {
   const AppRouter._();
 
   static const String initialRouter = '/';
+  static const String home = '/home';
 }
