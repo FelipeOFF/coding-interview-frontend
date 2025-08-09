@@ -47,10 +47,14 @@ class _HomePageState extends BaseStatePage<HomePage, HomeController> {
                         children: [
                           SwapInputLoaded(controller: controller),
                           const SizedBox(height: 8),
-                          TextFieldAmount(
-                            controller: controller,
-                            prefixTitle: AppS.of(context).usdt,
-                            errorText: AppS.of(context).pleaseEnterAmount,
+                          RxBuilder(
+                            builder: (context) => TextFieldAmount(
+                              controller: controller,
+                              prefixTitle: controller
+                                  .getCurrencyInfoByHave()
+                                  .name,
+                              errorText: AppS.of(context).pleaseEnterAmount,
+                            ),
                           ),
                           const SizedBox(height: 8),
                           DataValue(controller: controller),
@@ -93,26 +97,31 @@ class DataValue extends StatelessWidget {
       children: [
         KeyValueEntryWidget(
           title: AppS.of(context).estimateTax,
-          value: AppS.of(context).approximatelyEqual(
-            controller.result.totalTax,
-            controller.getCurrencyInfoByWant().name,
-          ),
+          value: controller.result?.totalTax != null
+              ? AppS.of(context).approximatelyEqual(
+                  controller.result!.totalTax,
+                  controller.getCurrencyInfoByWant().name,
+                )
+              : AppS.of(context).nothing,
         ),
         const SizedBox(height: 4),
         KeyValueEntryWidget(
           title: AppS.of(context).youWillReceive,
-          value: AppS.of(context).approximatelyEqual(
-            controller.result.totalAmount,
-            controller.getCurrencyInfoByWant().name,
-          ),
+          value: controller.result?.totalAmount != null
+              ? AppS.of(context).approximatelyEqual(
+                  controller.result!.totalAmount,
+                  controller.getCurrencyInfoByWant().name,
+                )
+              : AppS.of(context).nothing,
         ),
         const SizedBox(height: 4),
         KeyValueEntryWidget(
           title: AppS.of(context).estimateTime,
-          value: AppS.of(context).approximatelyEqualUniqValue(
-            controller.result.estToFinish?.formatDateToLess() ??
-                AppS.of(context).nothing,
-          ),
+          value: controller.result?.estToFinish != null
+              ? AppS.of(context).approximatelyEqualUniqValue(
+                  controller.result!.estToFinish!.formatDateToLess(),
+                )
+              : AppS.of(context).nothing,
         ),
       ],
     ),
