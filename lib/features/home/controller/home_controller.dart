@@ -72,11 +72,15 @@ class HomeController extends BaseController {
 
   RecommendationCurrency get wantCurrency => _wantCurrency.value;
 
-  set haveCurrency(RecommendationCurrency currency) =>
-      _haveCurrency.value = currency;
+  set haveCurrency(RecommendationCurrency currency) {
+    _haveCurrency.value = currency;
+    fetchChange();
+  }
 
-  set wantCurrency(RecommendationCurrency currency) =>
-      _wantCurrency.value = currency;
+  set wantCurrency(RecommendationCurrency currency) {
+    _wantCurrency.value = currency;
+    fetchChange();
+  }
 
   bool get switched => _switched.value;
 

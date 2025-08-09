@@ -15,22 +15,23 @@ class RecommendationUseCase
   @override
   Future<RecommendationModel?> execute(RecommendationReq param) async {
     final result = await repository.getRecommendation(param);
+    // 104
     final fiatToCryptoExchangeRate =
         result.data?.byPrice?.fiatToCryptoExchangeRate;
     if (fiatToCryptoExchangeRate == null) {
       return null;
     }
+    final type = param.type;
     final exchangeRate = double.tryParse(fiatToCryptoExchangeRate) ?? 1.0;
+    final amount = param.amount;
 
-    final convertedAmount = exchangeRate > param.amount
-        ? param.amount / exchangeRate
-        : param.amount * exchangeRate;
+    final totalWithTax = type == 0 ? amount * exchangeRate : amount / exchangeRate;
 
     return RecommendationModel(
       totalTax: exchangeRate.toAppMoneyFraction,
-      totalAmount: convertedAmount.toAppMoneyFraction,
+      totalAmount: totalWithTax.toAppMoneyFraction,
       estToFinish: DateTime.now().add(
-        Duration(minutes: 5 + Random().nextInt(45)),
+        Duration(seconds: Random().nextInt(3600) + 60),
       ),
     );
   }

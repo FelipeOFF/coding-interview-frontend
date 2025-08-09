@@ -181,12 +181,6 @@ class _RowContent extends StatelessWidget {
       // Right tile transforms (negative direction)
       final rightX = slideT.lerpDouble(0, -slideDist);
 
-      // check if the count is ok
-      final result = w - (gapForCircle + sideWidth * 2 + innerHPad * 2);
-      if (result == 0) {
-        print('Everything is ok');
-      }
-
       return Padding(
         padding: EdgeInsets.symmetric(horizontal: innerHPad),
         child: Row(
