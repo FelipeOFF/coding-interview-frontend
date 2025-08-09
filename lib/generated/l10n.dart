@@ -148,6 +148,11 @@ class AppS {
       args: [x, s],
     );
   }
+
+  /// `Change`
+  String get change {
+    return Intl.message('Change', name: 'change', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppS> {

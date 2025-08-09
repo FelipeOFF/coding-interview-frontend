@@ -30,6 +30,9 @@ class _HomePageState extends BaseStatePage<HomePage, HomeController> {
                 padding: const EdgeInsets.symmetric(horizontal: 32.0),
                 child: Card(
                   color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(24.0),
+                  ),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 24.0,
@@ -159,6 +162,25 @@ class _HomePageState extends BaseStatePage<HomePage, HomeController> {
                                     ?.copyWith(fontWeight: FontWeight.bold),
                               ),
                             ],
+                          ),
+                          const SizedBox(height: 16),
+                          SizedBox(
+                            width: double.infinity,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor:
+                                    Theme.of(context).colorScheme.primary,
+                                foregroundColor: Colors.white,
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 48, vertical: 16),
+                                textStyle: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium
+                                    ?.copyWith(fontWeight: FontWeight.bold),
+                              ),
+                              child: Text(AppS.of(context).change),
+                            ),
                           ),
                         ],
                       ),
