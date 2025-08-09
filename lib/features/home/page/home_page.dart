@@ -1,6 +1,7 @@
 import 'package:coding_interview_frontend/common/base/base_state_page.dart';
 import 'package:coding_interview_frontend/features/home/controller/home_controller.dart';
 import 'package:coding_interview_frontend/features/home/widgets/custom_paint_background.dart';
+import 'package:coding_interview_frontend/features/home/widgets/key_value_entry_widget.dart';
 import 'package:coding_interview_frontend/features/home/widgets/swap_input_loaded.dart';
 import 'package:coding_interview_frontend/features/home/widgets/text_field_amount.dart';
 import 'package:coding_interview_frontend/generated/l10n.dart';
@@ -49,55 +50,25 @@ class _HomePageState extends BaseStatePage<HomePage, HomeController> {
                             errorText: AppS.of(context).pleaseEnterAmount,
                           ),
                           const SizedBox(height: 8),
-                          Row(
-                            children: [
-                              Text(
-                                AppS.of(context).estimateTax,
-                                style: Theme.of(context).textTheme.bodyMedium,
-                              ),
-                              const Spacer(),
-                              Text(
-                                AppS.of(
-                                  context,
-                                ).approximatelyEqual('25.00', 'VES'),
-                                style: Theme.of(context).textTheme.bodyMedium
-                                    ?.copyWith(fontWeight: FontWeight.bold),
-                              ),
-                            ],
+                          KeyValueEntryWidget(
+                            title: AppS.of(context).estimateTax,
+                            value: AppS.of(
+                              context,
+                            ).approximatelyEqual('25.00', 'VES'),
                           ),
                           const SizedBox(height: 4),
-                          Row(
-                            children: [
-                              Text(
-                                AppS.of(context).youWillReceive,
-                                style: Theme.of(context).textTheme.bodyMedium,
-                              ),
-                              const Spacer(),
-                              Text(
-                                AppS.of(
-                                  context,
-                                ).approximatelyEqual('125.00', 'VES'),
-                                style: Theme.of(context).textTheme.bodyMedium
-                                    ?.copyWith(fontWeight: FontWeight.bold),
-                              ),
-                            ],
+                          KeyValueEntryWidget(
+                            title: AppS.of(context).youWillReceive,
+                            value: AppS.of(
+                              context,
+                            ).approximatelyEqual('125.00', 'VES'),
                           ),
                           const SizedBox(height: 4),
-                          Row(
-                            children: [
-                              Text(
-                                AppS.of(context).estimateTime,
-                                style: Theme.of(context).textTheme.bodyMedium,
-                              ),
-                              const Spacer(),
-                              Text(
-                                AppS.of(
-                                  context,
-                                ).approximatelyEqual('10', 'Min'),
-                                style: Theme.of(context).textTheme.bodyMedium
-                                    ?.copyWith(fontWeight: FontWeight.bold),
-                              ),
-                            ],
+                          KeyValueEntryWidget(
+                            title: AppS.of(context).estimateTime,
+                            value: AppS.of(
+                              context,
+                            ).approximatelyEqual('10', 'Min'),
                           ),
                           const SizedBox(height: 16),
                           SizedBox(
