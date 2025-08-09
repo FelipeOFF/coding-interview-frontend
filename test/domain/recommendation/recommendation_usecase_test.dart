@@ -69,11 +69,11 @@ void main() {
 
           // Assert
           expect(
-            result.totalTax,
+            result?.totalTax,
             expectedExchangeRate.toAppMoneyFraction,
           ); // Should be '1.00'
           expect(
-            result.totalAmount,
+            result?.totalAmount,
             expectedConvertedAmount.toAppMoneyFraction,
           ); // Should be '100.00'
         },
@@ -102,9 +102,9 @@ void main() {
           final result = await useCase.execute(mockReq);
 
           // Assert
-          expect(result.totalTax, expectedExchangeRate.toAppMoneyFraction);
+          expect(result?.totalTax, expectedExchangeRate.toAppMoneyFraction);
           expect(
-            result.totalAmount,
+            result?.totalAmount,
             expectedConvertedAmount.toAppMoneyFraction,
           );
         },
@@ -126,8 +126,8 @@ void main() {
         final result = await useCase.execute(mockReq);
 
         // Assert
-        expect(result.totalTax, expectedExchangeRate.toAppMoneyFraction);
-        expect(result.totalAmount, expectedConvertedAmount.toAppMoneyFraction);
+        expect(result?.totalTax, expectedExchangeRate.toAppMoneyFraction);
+        expect(result?.totalAmount, expectedConvertedAmount.toAppMoneyFraction);
       });
 
       test('uses default exchange rate of 1.0 when byPrice is null', () async {
@@ -147,8 +147,8 @@ void main() {
         final result = await useCase.execute(mockReq);
 
         // Assert
-        expect(result.totalTax, expectedExchangeRate.toAppMoneyFraction);
-        expect(result.totalAmount, expectedConvertedAmount.toAppMoneyFraction);
+        expect(result?.totalTax, expectedExchangeRate.toAppMoneyFraction);
+        expect(result?.totalAmount, expectedConvertedAmount.toAppMoneyFraction);
       });
 
       test('handles invalid exchange rate string and uses default', () async {
@@ -172,8 +172,8 @@ void main() {
         final result = await useCase.execute(mockReq);
 
         // Assert
-        expect(result.totalTax, expectedExchangeRate.toAppMoneyFraction);
-        expect(result.totalAmount, expectedConvertedAmount.toAppMoneyFraction);
+        expect(result?.totalTax, expectedExchangeRate.toAppMoneyFraction);
+        expect(result?.totalAmount, expectedConvertedAmount.toAppMoneyFraction);
       });
 
       test('handles empty string exchange rate and uses default', () async {
@@ -197,8 +197,8 @@ void main() {
         final result = await useCase.execute(mockReq);
 
         // Assert
-        expect(result.totalTax, expectedExchangeRate.toAppMoneyFraction);
-        expect(result.totalAmount, expectedConvertedAmount.toAppMoneyFraction);
+        expect(result?.totalTax, expectedExchangeRate.toAppMoneyFraction);
+        expect(result?.totalAmount, expectedConvertedAmount.toAppMoneyFraction);
       });
 
       test(
@@ -224,9 +224,9 @@ void main() {
           final result = await useCase.execute(mockReq);
 
           // Assert
-          expect(result.totalTax, expectedExchangeRate.toAppMoneyFraction);
+          expect(result?.totalTax, expectedExchangeRate.toAppMoneyFraction);
           expect(
-            result.totalAmount,
+            result?.totalAmount,
             expectedConvertedAmount.toAppMoneyFraction,
           );
         },
@@ -255,9 +255,9 @@ void main() {
           final result = await useCase.execute(mockReq);
 
           // Assert
-          expect(result.totalTax, expectedExchangeRate.toAppMoneyFraction);
+          expect(result?.totalTax, expectedExchangeRate.toAppMoneyFraction);
           expect(
-            result.totalAmount,
+            result?.totalAmount,
             expectedConvertedAmount.toAppMoneyFraction,
           );
         },
@@ -289,9 +289,9 @@ void main() {
           final result = await useCase.execute(mockReq);
 
           // Assert
-          expect(result.totalTax, expectedExchangeRate.toAppMoneyFraction);
+          expect(result?.totalTax, expectedExchangeRate.toAppMoneyFraction);
           expect(
-            result.totalAmount,
+            result?.totalAmount,
             expectedConvertedAmount.toAppMoneyFraction,
           );
         },
@@ -317,7 +317,7 @@ void main() {
         final result = await useCase.execute(mockReq);
 
         // Assert
-        final timeDifference = result.estToFinish?.difference(now);
+        final timeDifference = result?.estToFinish?.difference(now);
         expect(timeDifference?.inMinutes, greaterThanOrEqualTo(5));
         expect(timeDifference?.inMinutes, lessThanOrEqualTo(50));
       });
@@ -343,8 +343,8 @@ void main() {
         final result = await useCase.execute(mockReq);
 
         // Assert
-        expect(result.totalTax, expectedExchangeRate.toAppMoneyFraction);
-        expect(result.totalAmount, expectedConvertedAmount.toAppMoneyFraction);
+        expect(result?.totalTax, expectedExchangeRate.toAppMoneyFraction);
+        expect(result?.totalAmount, expectedConvertedAmount.toAppMoneyFraction);
       });
 
       test('handles negative amount', () async {
@@ -368,8 +368,8 @@ void main() {
         final result = await useCase.execute(mockReq);
 
         // Assert
-        expect(result.totalTax, expectedExchangeRate.toAppMoneyFraction);
-        expect(result.totalAmount, expectedConvertedAmount.toAppMoneyFraction);
+        expect(result?.totalTax, expectedExchangeRate.toAppMoneyFraction);
+        expect(result?.totalAmount, expectedConvertedAmount.toAppMoneyFraction);
       });
 
       test('handles very small exchange rate', () async {
@@ -393,8 +393,8 @@ void main() {
         final result = await useCase.execute(mockReq);
 
         // Assert
-        expect(result.totalTax, expectedExchangeRate.toAppMoneyFraction);
-        expect(result.totalAmount, expectedConvertedAmount.toAppMoneyFraction);
+        expect(result?.totalTax, expectedExchangeRate.toAppMoneyFraction);
+        expect(result?.totalAmount, expectedConvertedAmount.toAppMoneyFraction);
       });
 
       test('handles very large exchange rate', () async {
@@ -418,8 +418,8 @@ void main() {
         final result = await useCase.execute(mockReq);
 
         // Assert
-        expect(result.totalTax, expectedExchangeRate.toAppMoneyFraction);
-        expect(result.totalAmount, expectedConvertedAmount.toAppMoneyFraction);
+        expect(result?.totalTax, expectedExchangeRate.toAppMoneyFraction);
+        expect(result?.totalAmount, expectedConvertedAmount.toAppMoneyFraction);
       });
 
       test('propagates repository exceptions', () async {
@@ -475,7 +475,7 @@ void main() {
           // Act
           for (int i = 0; i < 10; i++) {
             final result = await useCase.execute(mockReq);
-            results.add(result);
+            results.add(result!);
             // Small delay to ensure different DateTime.now() calls
             await Future<void>.delayed(const Duration(milliseconds: 1));
           }
