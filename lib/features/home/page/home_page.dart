@@ -169,11 +169,14 @@ class _HomePageState extends BaseStatePage<HomePage, HomeController> {
                             child: ElevatedButton(
                               onPressed: () {},
                               style: ElevatedButton.styleFrom(
-                                backgroundColor:
-                                    Theme.of(context).colorScheme.primary,
+                                backgroundColor: Theme.of(
+                                  context,
+                                ).colorScheme.primary,
                                 foregroundColor: Colors.white,
                                 padding: const EdgeInsets.symmetric(
-                                    horizontal: 48, vertical: 16),
+                                  horizontal: 48,
+                                  vertical: 12,
+                                ),
                                 textStyle: Theme.of(context)
                                     .textTheme
                                     .titleMedium
