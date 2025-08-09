@@ -184,7 +184,10 @@ class _RowContent extends StatelessWidget {
       final leftX = slideT.lerpDouble(leftInitialX, leftInitialX + slideDist);
 
       // Right tile transforms (negative direction)
-      final rightX = slideT.lerpDouble(rightInitialX, rightInitialX - slideDist);
+      final rightX = slideT.lerpDouble(
+        rightInitialX,
+        rightInitialX - slideDist,
+      );
 
       return SizedBox(
         height: circleSize, // Ensure adequate height for the circle
@@ -194,19 +197,17 @@ class _RowContent extends StatelessWidget {
             Positioned.fill(
               left: leftX,
               top: 2.0, // Match the original padding
+              right: rightX,
               child: GestureDetector(
                 onTap: onLeft,
                 child: SizedBox(
                   width: sideWidth,
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: SizedBox(
-                      width: sideWidth,
-                      child: _SelectorTile(
-                        leading: leftIcon,
-                        title: leftText,
-                        alignRight: false,
-                      ),
+                  child: SizedBox(
+                    width: sideWidth,
+                    child: _SelectorTile(
+                      leading: leftIcon,
+                      title: leftText,
+                      alignRight: slideT > 0.5,
                     ),
                   ),
                 ),
@@ -236,19 +237,17 @@ class _RowContent extends StatelessWidget {
             Positioned.fill(
               left: rightX,
               top: 2.0, // Match the original padding
+              right: leftX,
               child: GestureDetector(
                 onTap: onRight,
                 child: SizedBox(
                   width: sideWidth,
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: SizedBox(
-                      width: sideWidth,
-                      child: _SelectorTile(
-                        leading: rightIcon,
-                        title: rightText,
-                        alignRight: true,
-                      ),
+                  child: SizedBox(
+                    width: sideWidth,
+                    child: _SelectorTile(
+                      leading: rightIcon,
+                      title: rightText,
+                      alignRight: slideT < 0.5,
                     ),
                   ),
                 ),
