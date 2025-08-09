@@ -2,7 +2,6 @@ import 'package:coding_interview_frontend/common/dialog/app_dialog.dart';
 import 'package:coding_interview_frontend/features/home/controller/home_controller.dart';
 import 'package:coding_interview_frontend/features/home/model/currency_info.dart';
 import 'package:coding_interview_frontend/features/home/widgets/swap_input.dart';
-import 'package:coding_interview_frontend/gen/assets.gen.dart';
 import 'package:coding_interview_frontend/generated/l10n.dart';
 import 'package:coding_interview_frontend/model/recommendations/recommendation_currency.dart';
 import 'package:flutter/material.dart';
@@ -20,61 +19,25 @@ class SwapInputLoaded extends StatefulWidget {
 class _SwapInputLoadedState extends State<SwapInputLoaded> {
   HomeController get controller => widget.controller;
 
-  List<CurrencyInfo> get _currencyImages => [
-    CurrencyInfo(
-      name: RecommendationCurrency.brl.value,
-      currency: RecommendationCurrency.brl,
-      image: Assets.fiatCurrencies.brl,
-      description: AppS.of(context).realBrasileiroR,
-    ),
-    CurrencyInfo(
-      name: RecommendationCurrency.cop.value,
-      currency: RecommendationCurrency.cop,
-      image: Assets.fiatCurrencies.cop,
-      description: AppS.of(context).pesoColombianoCol,
-    ),
-    CurrencyInfo(
-      name: RecommendationCurrency.pen.value,
-      currency: RecommendationCurrency.pen,
-      image: Assets.fiatCurrencies.pen,
-      description: AppS.of(context).solPeruanoS,
-    ),
-    CurrencyInfo(
-      name: RecommendationCurrency.ves.value,
-      currency: RecommendationCurrency.ves,
-      image: Assets.fiatCurrencies.ves,
-      description: AppS.of(context).bolvaresBs,
-    ),
-    CurrencyInfo(
-      name: AppS.of(context).usdt,
-      currency: RecommendationCurrency.tatumTronUSDT,
-      image: Assets.criptoCurrencies.tatumTronUsdt,
-      description: AppS.of(context).tetherUsdt,
-    ),
-    CurrencyInfo(
-      name: AppS.of(context).usdc,
-      currency: RecommendationCurrency.tatumTronUSDC,
-      image: Assets.criptoCurrencies.tatumTronUsdt,
-      description: AppS.of(context).usdCoinUsdc,
-    ),
-  ];
-
-  CurrencyInfo _getCurrencyInfoBySelected(RecommendationCurrency currency) =>
-      _currencyImages.firstWhere((element) => element.currency == currency);
-
   @override
   Widget build(BuildContext context) => RxBuilder(
     builder: (context) => SwapInput(
       leftTitle: AppS.of(context).have,
       rightTitle: AppS.of(context).want,
-      leftIcon: _getCurrencyInfoBySelected(
-        controller.haveCurrency,
-      ).image.image(),
-      rightIcon: _getCurrencyInfoBySelected(
-        controller.wantCurrency,
-      ).image.image(),
-      leftCoin: _getCurrencyInfoBySelected(controller.haveCurrency).name,
-      rightCoin: _getCurrencyInfoBySelected(controller.wantCurrency).name,
+      leftIcon: controller
+          .getCurrencyInfoBySelected(controller.haveCurrency)
+          .image
+          .image(),
+      rightIcon: controller
+          .getCurrencyInfoBySelected(controller.wantCurrency)
+          .image
+          .image(),
+      leftCoin: controller
+          .getCurrencyInfoBySelected(controller.haveCurrency)
+          .name,
+      rightCoin: controller
+          .getCurrencyInfoBySelected(controller.wantCurrency)
+          .name,
       onSwap: (swap) {
         controller.switched = swap;
       },
@@ -90,7 +53,7 @@ class _SwapInputLoadedState extends State<SwapInputLoaded> {
           listOfContent: RecommendationCurrency.crypto,
           currentGroupValue: controller.haveCurrency,
         )) ??
-            controller.haveCurrency;
+        controller.haveCurrency;
   }
 
   Future<void> _showFiatDialog() async {
@@ -100,7 +63,7 @@ class _SwapInputLoadedState extends State<SwapInputLoaded> {
           listOfContent: RecommendationCurrency.fiat,
           currentGroupValue: controller.wantCurrency,
         )) ??
-            controller.wantCurrency;
+        controller.wantCurrency;
   }
 
   Future<RecommendationCurrency?> _showGenericDialog({
@@ -118,7 +81,7 @@ class _SwapInputLoadedState extends State<SwapInputLoaded> {
       shrinkWrap: true,
       itemBuilder: (context, index) {
         final item = listOfContent[index];
-        final currentImage = _getCurrencyInfoBySelected(item);
+        final currentImage = controller.getCurrencyInfoBySelected(item);
         return RadioTile(
           currentImage: currentImage,
           item: item,

@@ -7,6 +7,7 @@ import 'package:coding_interview_frontend/features/home/widgets/swap_input_loade
 import 'package:coding_interview_frontend/features/home/widgets/text_field_amount.dart';
 import 'package:coding_interview_frontend/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:rx_notifier/rx_notifier.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -51,26 +52,7 @@ class _HomePageState extends BaseStatePage<HomePage, HomeController> {
                             errorText: AppS.of(context).pleaseEnterAmount,
                           ),
                           const SizedBox(height: 8),
-                          KeyValueEntryWidget(
-                            title: AppS.of(context).estimateTax,
-                            value: AppS.of(
-                              context,
-                            ).approximatelyEqual('25.00', 'VES'),
-                          ),
-                          const SizedBox(height: 4),
-                          KeyValueEntryWidget(
-                            title: AppS.of(context).youWillReceive,
-                            value: AppS.of(
-                              context,
-                            ).approximatelyEqual('125.00', 'VES'),
-                          ),
-                          const SizedBox(height: 4),
-                          KeyValueEntryWidget(
-                            title: AppS.of(context).estimateTime,
-                            value: AppS.of(
-                              context,
-                            ).approximatelyEqual('10', 'Min'),
-                          ),
+                          DataValue(controller: controller),
                           const SizedBox(height: 16),
                           SizedBox(
                             width: double.infinity,
@@ -93,6 +75,40 @@ class _HomePageState extends BaseStatePage<HomePage, HomeController> {
               ),
             ],
           ),
+        ),
+      ],
+    ),
+  );
+}
+
+class DataValue extends StatelessWidget {
+  const DataValue({required this.controller, super.key});
+
+  final HomeController controller;
+
+  @override
+  Widget build(BuildContext context) => RxBuilder(
+    builder: (context) => Column(
+      children: [
+        KeyValueEntryWidget(
+          title: AppS.of(context).estimateTax,
+          value: AppS.of(context).approximatelyEqual(
+            '25.00',
+            controller.getCurrencyInfoByWant().name,
+          ),
+        ),
+        const SizedBox(height: 4),
+        KeyValueEntryWidget(
+          title: AppS.of(context).youWillReceive,
+          value: AppS.of(context).approximatelyEqual(
+            '125.00',
+            controller.getCurrencyInfoByWant().name,
+          ),
+        ),
+        const SizedBox(height: 4),
+        KeyValueEntryWidget(
+          title: AppS.of(context).estimateTime,
+          value: AppS.of(context).approximatelyEqual('10', 'Min'),
         ),
       ],
     ),
