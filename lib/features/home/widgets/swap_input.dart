@@ -90,12 +90,9 @@ class _SwapInputState extends State<SwapInput>
                 radius: radius,
                 leftText: widget.leftTitle,
                 rightText: widget.rightTitle,
-                textStyle: const TextStyle(
-                  fontWeight: FontWeight.w500,
-                  letterSpacing: 1,
-                  fontSize: 12,
-                  color: Colors.black87,
-                ),
+                textStyle: Theme.of(
+                  context,
+                ).textTheme.bodyLarge?.copyWith(fontSize: 12),
                 labelPadding: const EdgeInsets.symmetric(
                   horizontal: 8,
                   vertical: 2,
@@ -276,11 +273,9 @@ class _SelectorTile extends StatelessWidget {
       const SizedBox(width: 4),
       Text(
         title,
-        style: const TextStyle(
-          fontSize: 12,
-          fontWeight: FontWeight.w800,
-          color: Colors.black,
-        ),
+        style: Theme.of(
+          context,
+        ).textTheme.headlineLarge?.copyWith(fontSize: 12),
       ),
       const Icon(Icons.keyboard_arrow_down, size: 20, color: Colors.black),
     ],
@@ -295,13 +290,13 @@ class _CapsuleBorderWithLabelsPainter extends CustomPainter {
     required this.radius,
     required this.leftText,
     required this.rightText,
-    required this.textStyle,
     required this.labelPadding,
     required this.labelBgColor,
     required this.topPaddingForBorder,
     required this.bottomPaddingForBorder,
     required this.cutHeight,
     required this.cutWidthExtra,
+    this.textStyle,
   });
 
   final Color strokeColor;
@@ -310,7 +305,7 @@ class _CapsuleBorderWithLabelsPainter extends CustomPainter {
 
   final String leftText;
   final String rightText;
-  final TextStyle textStyle;
+  final TextStyle? textStyle;
   final EdgeInsets labelPadding;
   final Color labelBgColor;
 
@@ -404,7 +399,7 @@ class _CapsuleBorderWithLabelsPainter extends CustomPainter {
     return Rect.fromLTWH(left, top, chipSize.width, chipSize.height);
   }
 
-  static TextPainter _tp(String text, TextStyle style) {
+  static TextPainter _tp(String text, TextStyle? style) {
     final tp = TextPainter(
       text: TextSpan(text: text, style: style),
       textDirection: TextDirection.ltr,

@@ -88,6 +88,66 @@ class AppS {
   String get want {
     return Intl.message('WANT', name: 'want', desc: '', args: []);
   }
+
+  /// `Enter your amount`
+  String get enterYourAmount {
+    return Intl.message(
+      'Enter your amount',
+      name: 'enterYourAmount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter amount`
+  String get pleaseEnterAmount {
+    return Intl.message(
+      'Please enter amount',
+      name: 'pleaseEnterAmount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Estimate Tax`
+  String get estimateTax {
+    return Intl.message(
+      'Estimate Tax',
+      name: 'estimateTax',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You will receive`
+  String get youWillReceive {
+    return Intl.message(
+      'You will receive',
+      name: 'youWillReceive',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Estimate Time`
+  String get estimateTime {
+    return Intl.message(
+      'Estimate Time',
+      name: 'estimateTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `≈ {x} {s}`
+  String approximatelyEqual(String x, String s) {
+    return Intl.message(
+      '≈ $x $s',
+      name: 'approximatelyEqual',
+      desc: 'This is an example of approximately equal',
+      args: [x, s],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppS> {

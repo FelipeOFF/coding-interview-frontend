@@ -5,5 +5,23 @@
   "nothing": "-",
   "close": "Close",
   "have": "TENGO",
-  "want": "QUIERO"
+  "want": "QUIERO",
+  "enterYourAmount": "Enter your amount",
+  "pleaseEnterAmount": "Please enter amount",
+  "estimateTax": "Estimate Tax",
+  "youWillReceive": "You will receive",
+  "estimateTime": "Estimate Time",
+  "approximatelyEqual": "≈ 20.00 VES",
+  "@approximatelyEqual": {
+    "description": "This is an example of approximately equal",
+    "placeholders": {
+      "x": {
+        "type": "String"
+      },
+      "s": {
+        "type": "String"
+      }
+    }
+  }
+
 }

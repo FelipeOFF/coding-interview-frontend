@@ -20,16 +20,28 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'es';
 
+  static String m0(x, s) => "≈ 20.00 VES";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "approximatelyEqual": m0,
     "close": MessageLookupByLibrary.simpleMessage("Close"),
+    "enterYourAmount": MessageLookupByLibrary.simpleMessage(
+      "Enter your amount",
+    ),
+    "estimateTax": MessageLookupByLibrary.simpleMessage("Estimate Tax"),
+    "estimateTime": MessageLookupByLibrary.simpleMessage("Estimate Time"),
     "have": MessageLookupByLibrary.simpleMessage("TENGO"),
     "nothing": MessageLookupByLibrary.simpleMessage("-"),
     "ops": MessageLookupByLibrary.simpleMessage("Ups..."),
+    "pleaseEnterAmount": MessageLookupByLibrary.simpleMessage(
+      "Please enter amount",
+    ),
     "somethingWrongHappenedPleaseTryAgainLater":
         MessageLookupByLibrary.simpleMessage(
           "Algo salió mal, por favor inténtalo de nuevo más tarde",
         ),
     "want": MessageLookupByLibrary.simpleMessage("QUIERO"),
+    "youWillReceive": MessageLookupByLibrary.simpleMessage("You will receive"),
   };
 }
