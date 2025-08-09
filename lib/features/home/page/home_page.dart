@@ -1,4 +1,5 @@
 import 'package:coding_interview_frontend/common/base/base_state_page.dart';
+import 'package:coding_interview_frontend/common/helper/money_value_formatter.dart';
 import 'package:coding_interview_frontend/features/home/controller/home_controller.dart';
 import 'package:coding_interview_frontend/features/home/widgets/custom_paint_background.dart';
 import 'package:coding_interview_frontend/features/home/widgets/swap_input.dart';
@@ -57,6 +58,7 @@ class _HomePageState extends BaseStatePage<HomePage, HomeController> {
                             inputFormatters: [
                               FilteringTextInputFormatter.digitsOnly,
                               LengthLimitingTextInputFormatter(50),
+                              MoneyValueFormatter(),
                             ],
                             keyboardType: TextInputType.number,
                             validator: (value) {
