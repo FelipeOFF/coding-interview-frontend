@@ -9,6 +9,7 @@ import 'package:coding_interview_frontend/generated/l10n.dart';
 import 'package:coding_interview_frontend/model/recommendations/recommendation_currency.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:rx_notifier/rx_notifier.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -22,21 +23,25 @@ class _HomePageState extends BaseStatePage<HomePage, HomeController> {
 
   List<CurrencyInfo> get _currencyImages => [
     CurrencyInfo(
+      name: RecommendationCurrency.brl.value,
       currency: RecommendationCurrency.brl,
       image: Assets.fiatCurrencies.brl,
       description: AppS.of(context).realBrasileiroR,
     ),
     CurrencyInfo(
+      name: RecommendationCurrency.cop.value,
       currency: RecommendationCurrency.cop,
       image: Assets.fiatCurrencies.cop,
       description: AppS.of(context).pesoColombianoCol,
     ),
     CurrencyInfo(
+      name: RecommendationCurrency.pen.value,
       currency: RecommendationCurrency.pen,
       image: Assets.fiatCurrencies.pen,
       description: AppS.of(context).solPeruanoS,
     ),
     CurrencyInfo(
+      name: RecommendationCurrency.ves.value,
       currency: RecommendationCurrency.ves,
       image: Assets.fiatCurrencies.ves,
       description: AppS.of(context).bolvaresBs,
@@ -83,17 +88,28 @@ class _HomePageState extends BaseStatePage<HomePage, HomeController> {
                       key: _formKey,
                       child: Column(
                         children: [
-                          SwapInput(
-                            leftTitle: AppS.of(context).have,
-                            rightTitle: AppS.of(context).want,
-                            leftIcon: Assets.criptoCurrencies.tatumTronUsdt
-                                .image(),
-                            rightIcon: Assets.fiatCurrencies.ves.image(),
-                            leftCoin: 'USDT',
-                            rightCoin: 'VES',
-                            onSwap: print,
-                            onLeft: _showCriptoDialog,
-                            onRight: _showFiatDialog,
+                          RxBuilder(
+                            builder: (context) => SwapInput(
+                              leftTitle: AppS.of(context).have,
+                              rightTitle: AppS.of(context).want,
+                              leftIcon: _getCurrencyInfoBySelected(
+                                controller.haveCurrency,
+                              ).image.image(),
+                              rightIcon: _getCurrencyInfoBySelected(
+                                controller.wantCurrency,
+                              ).image.image(),
+                              leftCoin: _getCurrencyInfoBySelected(
+                                controller.haveCurrency,
+                              ).name,
+                              rightCoin: _getCurrencyInfoBySelected(
+                                controller.wantCurrency,
+                              ).name,
+                              onSwap: (swap) {
+                                controller.switched = swap;
+                              },
+                              onLeft: _showCriptoDialog,
+                              onRight: _showFiatDialog,
+                            ),
                           ),
                           const SizedBox(height: 8),
                           TextFormField(
@@ -264,7 +280,7 @@ class _HomePageState extends BaseStatePage<HomePage, HomeController> {
         itemBuilder: (context, index) {
           final item = RecommendationCurrency.fiat[index];
           final currentImage = _getCurrencyInfoBySelected(item);
-          return ListTile(
+          return RadioListTile(
             title: Text(
               item.value,
               style: Theme.of(
@@ -275,13 +291,16 @@ class _HomePageState extends BaseStatePage<HomePage, HomeController> {
               currentImage.description,
               style: Theme.of(context).textTheme.bodyMedium,
             ),
-            leading: SizedBox.square(
+            secondary: SizedBox.square(
               dimension: 32,
               child: currentImage.image.image(),
             ),
-            onTap: () {
-              Navigator.of(context).pop(item);
+            controlAffinity: ListTileControlAffinity.trailing,
+            value: item,
+            onChanged: (value) {
+              Navigator.of(context).pop(value);
             },
+            groupValue: controller.wantCurrency,
           );
         },
         separatorBuilder: (context, index) => const SizedBox(height: 16),
@@ -304,7 +323,7 @@ class _HomePageState extends BaseStatePage<HomePage, HomeController> {
         itemBuilder: (context, index) {
           final item = RecommendationCurrency.crypto[index];
           final currentImage = _getCurrencyInfoBySelected(item);
-          return ListTile(
+          return RadioListTile(
             title: Text(
               currentImage.name ?? item.value,
               style: Theme.of(
@@ -315,13 +334,16 @@ class _HomePageState extends BaseStatePage<HomePage, HomeController> {
               currentImage.description,
               style: Theme.of(context).textTheme.bodyMedium,
             ),
-            leading: SizedBox.square(
+            secondary: SizedBox.square(
               dimension: 32,
               child: currentImage.image.image(),
             ),
-            onTap: () {
-              Navigator.of(context).pop(item);
+            controlAffinity: ListTileControlAffinity.trailing,
+            value: item,
+            onChanged: (value) {
+              Navigator.of(context).pop(value);
             },
+            groupValue: controller.haveCurrency,
           );
         },
         separatorBuilder: (context, index) => const SizedBox(height: 16),
@@ -337,10 +359,10 @@ class CurrencyInfo {
     required this.currency,
     required this.description,
     required this.image,
-    this.name,
+    required this.name,
   });
 
-  final String? name;
+  final String name;
   final RecommendationCurrency currency;
   final String description;
   final AssetGenImage image;
