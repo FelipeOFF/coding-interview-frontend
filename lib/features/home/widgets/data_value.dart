@@ -41,7 +41,9 @@ class DataValue extends StatelessWidget {
             title: AppS.of(context).estimateTime,
             value: controller.result?.estToFinish != null
                 ? AppS.of(context).approximatelyEqualUniqValue(
-                    controller.result!.estToFinish!.formatDateToLess(),
+                    controller.result!.estToFinish!.formatDateToLess(
+                      AppS.of(context),
+                    ),
                   )
                 : AppS.of(context).nothing,
           ),
