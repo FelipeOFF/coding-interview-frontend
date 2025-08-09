@@ -73,7 +73,7 @@ class _HomePageState extends BaseStatePage<HomePage, HomeController> {
                           const SizedBox(height: 16),
                           SizedBox(
                             width: double.infinity,
-                            child: ElevatedButton(
+                            child: ExecButton(
                               onPressed: () {
                                 final validation = _formKey.currentState
                                     ?.validate();
@@ -82,21 +82,6 @@ class _HomePageState extends BaseStatePage<HomePage, HomeController> {
                                   print('Validated');
                                 }
                               },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Theme.of(
-                                  context,
-                                ).colorScheme.primary,
-                                foregroundColor: Colors.white,
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 48,
-                                  vertical: 12,
-                                ),
-                                textStyle: Theme.of(context)
-                                    .textTheme
-                                    .titleMedium
-                                    ?.copyWith(fontWeight: FontWeight.bold),
-                              ),
-                              child: Text(AppS.of(context).change),
                             ),
                           ),
                         ],
@@ -110,5 +95,25 @@ class _HomePageState extends BaseStatePage<HomePage, HomeController> {
         ),
       ],
     ),
+  );
+}
+
+class ExecButton extends StatelessWidget {
+  const ExecButton({super.key, this.onPressed});
+
+  final VoidCallback? onPressed;
+
+  @override
+  Widget build(BuildContext context) => ElevatedButton(
+    onPressed: onPressed,
+    style: ElevatedButton.styleFrom(
+      backgroundColor: Theme.of(context).colorScheme.primary,
+      foregroundColor: Colors.white,
+      padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 12),
+      textStyle: Theme.of(
+        context,
+      ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+    ),
+    child: Text(AppS.of(context).change),
   );
 }
