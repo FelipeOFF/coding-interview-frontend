@@ -115,6 +115,7 @@ class HomeController extends BaseController {
     if (amount <= 0) {
       return;
     }
+    isLoading = true;
     _timer?.cancel();
     _timer = Timer(const Duration(seconds: 2), () async {
       await _fetchChange();

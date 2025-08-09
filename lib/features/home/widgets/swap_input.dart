@@ -166,88 +166,88 @@ class _RowContent extends StatelessWidget {
   final Widget centerIcon;
 
   @override
+  @override
   Widget build(BuildContext context) => LayoutBuilder(
     builder: (context, c) {
       final w = c.maxWidth;
-      final gapForCircle = circleSize / 2 + 16; // keep space center
+      final gapForCircle = circleSize / 2 + 16; // keep space for center
       final sideWidth = (w - gapForCircle - innerHPad * 2) / 2;
 
       // slide distance: from original side to opposite side centers
       final slideDist = (sideWidth + (gapForCircle - 16) / 2) + (sideWidth / 2);
 
+      // Calculate positions for Stack layout
+      final leftInitialX = innerHPad;
+      final rightInitialX = innerHPad + sideWidth + gapForCircle;
+
       // Left tile transforms
-      final leftX = slideT.lerpDouble(0, slideDist);
+      final leftX = slideT.lerpDouble(leftInitialX, leftInitialX + slideDist);
 
       // Right tile transforms (negative direction)
-      final rightX = slideT.lerpDouble(0, -slideDist);
+      final rightX = slideT.lerpDouble(rightInitialX, rightInitialX - slideDist);
 
-      return Padding(
-        padding: EdgeInsets.symmetric(horizontal: innerHPad),
-        child: Row(
+      return SizedBox(
+        height: circleSize, // Ensure adequate height for the circle
+        child: Stack(
           children: [
             // Left selector
-            Padding(
-              padding: const EdgeInsets.only(top: 2.0),
-              child: SizedBox(
-                width: sideWidth,
-                child: Transform.translate(
-                  offset: Offset(leftX, 0),
+            Positioned.fill(
+              left: leftX,
+              top: 2.0, // Match the original padding
+              child: GestureDetector(
+                onTap: onLeft,
+                child: SizedBox(
+                  width: sideWidth,
                   child: Align(
                     alignment: Alignment.centerLeft,
-                    child: GestureDetector(
-                      onTap: onLeft,
-                      child: SizedBox(
-                        width: double.infinity,
-                        child: _SelectorTile(
-                          leading: leftIcon,
-                          title: leftText,
-                          alignRight: false,
-                        ),
+                    child: SizedBox(
+                      width: sideWidth,
+                      child: _SelectorTile(
+                        leading: leftIcon,
+                        title: leftText,
+                        alignRight: false,
                       ),
                     ),
                   ),
                 ),
               ),
             ),
-            // Center circle
-            SizedBox(
-              width: gapForCircle,
-              child: Center(
-                child: GestureDetector(
-                  onTap: onSwap,
-                  child: Container(
-                    width: circleSize,
-                    height: circleSize,
-                    decoration: BoxDecoration(
-                      color: yellow,
-                      shape: BoxShape.circle,
-                    ),
-                    child: Transform.rotate(
-                      angle: rotation * math.pi, // 0..180°
-                      child: Center(child: centerIcon),
-                    ),
+
+            // Center circle - positioned absolutely
+            Positioned.fill(
+              child: GestureDetector(
+                onTap: onSwap,
+                child: Container(
+                  width: circleSize,
+                  height: circleSize,
+                  decoration: BoxDecoration(
+                    color: yellow,
+                    shape: BoxShape.circle,
+                  ),
+                  child: Transform.rotate(
+                    angle: rotation * math.pi, // 0..180°
+                    child: Center(child: centerIcon),
                   ),
                 ),
               ),
             ),
+
             // Right selector
-            Padding(
-              padding: const EdgeInsets.only(top: 2.0),
-              child: SizedBox(
-                width: sideWidth,
-                child: Transform.translate(
-                  offset: Offset(rightX, 0),
+            Positioned.fill(
+              left: rightX,
+              top: 2.0, // Match the original padding
+              child: GestureDetector(
+                onTap: onRight,
+                child: SizedBox(
+                  width: sideWidth,
                   child: Align(
                     alignment: Alignment.centerLeft,
-                    child: GestureDetector(
-                      onTap: onRight,
-                      child: SizedBox(
-                        width: double.infinity,
-                        child: _SelectorTile(
-                          leading: rightIcon,
-                          title: rightText,
-                          alignRight: true,
-                        ),
+                    child: SizedBox(
+                      width: sideWidth,
+                      child: _SelectorTile(
+                        leading: rightIcon,
+                        title: rightText,
+                        alignRight: true,
                       ),
                     ),
                   ),
