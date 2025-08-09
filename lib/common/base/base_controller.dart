@@ -14,9 +14,9 @@ abstract class BaseController {
 
   set message(GenericMessage? message) => _message?.value = message;
 
-  bool? get isLoading => _isLoading?.value;
+  bool get isLoading => _isLoading?.value ?? false;
 
-  set isLoading(bool? isLoading) => _isLoading?.value = isLoading;
+  set isLoading(bool isLoading) => _isLoading?.value = isLoading;
 
   void init() {
     _message = RxNotifier(EmptyMessage());
@@ -35,13 +35,11 @@ abstract class BaseController {
     final Either<AppError, R> result = await useCase(value);
     if (result.isLeft()) {
       await _resolveError(result, mapError);
-    } else {
-      return result.getRight().toNullable();
     }
     if (showLoading) {
       isLoading = false;
     }
-    return null;
+    return result.getRight().toNullable();
   }
 
   Future<void> _resolveError(

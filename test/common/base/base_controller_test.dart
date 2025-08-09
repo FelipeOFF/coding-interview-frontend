@@ -70,8 +70,7 @@ void main() {
         controller.isLoading = false;
         expect(controller.isLoading, isFalse);
 
-        controller.isLoading = null;
-        expect(controller.isLoading, isNull);
+        expect(controller.isLoading, isFalse);
       });
 
       test('should handle null message assignment', () {
