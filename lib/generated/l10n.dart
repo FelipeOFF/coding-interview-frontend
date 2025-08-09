@@ -149,6 +149,16 @@ class AppS {
     );
   }
 
+  /// `≈ {x}`
+  String approximatelyEqualUniqValue(String x) {
+    return Intl.message(
+      '≈ $x',
+      name: 'approximatelyEqualUniqValue',
+      desc: 'This is an example of approximately equal',
+      args: [x],
+    );
+  }
+
   /// `Change`
   String get change {
     return Intl.message('Change', name: 'change', desc: '', args: []);
@@ -232,6 +242,59 @@ class AppS {
   /// `USDC`
   String get usdc {
     return Intl.message('USDC', name: 'usdc', desc: '', args: []);
+  }
+
+  /// `{x, plural, one{{x} Day} other{{x} Days}}`
+  String day(int x) {
+    return Intl.plural(
+      x,
+      one: '$x Day',
+      other: '$x Days',
+      name: 'day',
+      desc: 'This is an example of day',
+      args: [x],
+    );
+  }
+
+  /// `{x, plural, one{{x} Hour} other{{x} Hours}}`
+  String hour(int x) {
+    return Intl.plural(
+      x,
+      one: '$x Hour',
+      other: '$x Hours',
+      name: 'hour',
+      desc: '',
+      args: [x],
+    );
+  }
+
+  /// `{x, plural, one{{x} Min} other{{x} Min}}`
+  String min(int x) {
+    return Intl.plural(
+      x,
+      one: '$x Min',
+      other: '$x Min',
+      name: 'min',
+      desc: '',
+      args: [x],
+    );
+  }
+
+  /// `{x, plural, one{{x} Sec} other{{x} Sec}}`
+  String sec(int x) {
+    return Intl.plural(
+      x,
+      one: '$x Sec',
+      other: '$x Sec',
+      name: 'sec',
+      desc: '',
+      args: [x],
+    );
+  }
+
+  /// `Just now`
+  String get justNow {
+    return Intl.message('Just now', name: 'justNow', desc: '', args: []);
   }
 }
 

@@ -1,4 +1,5 @@
 import 'package:coding_interview_frontend/common/base/base_state_page.dart';
+import 'package:coding_interview_frontend/common/helper/date_time_ext.dart';
 import 'package:coding_interview_frontend/features/home/controller/home_controller.dart';
 import 'package:coding_interview_frontend/features/home/widgets/custom_paint_background.dart';
 import 'package:coding_interview_frontend/features/home/widgets/exec_button.dart';
@@ -93,7 +94,7 @@ class DataValue extends StatelessWidget {
         KeyValueEntryWidget(
           title: AppS.of(context).estimateTax,
           value: AppS.of(context).approximatelyEqual(
-            '25.00',
+            controller.result?.totalTax ?? AppS.of(context).nothing,
             controller.getCurrencyInfoByWant().name,
           ),
         ),
@@ -101,14 +102,17 @@ class DataValue extends StatelessWidget {
         KeyValueEntryWidget(
           title: AppS.of(context).youWillReceive,
           value: AppS.of(context).approximatelyEqual(
-            '125.00',
+            controller.result?.totalAmount ?? AppS.of(context).nothing,
             controller.getCurrencyInfoByWant().name,
           ),
         ),
         const SizedBox(height: 4),
         KeyValueEntryWidget(
           title: AppS.of(context).estimateTime,
-          value: AppS.of(context).approximatelyEqual('10', 'Min'),
+          value: AppS.of(context).approximatelyEqualUniqValue(
+            controller.result?.estToFinish.formatDateToLess() ??
+                AppS.of(context).nothing,
+          ),
         ),
       ],
     ),

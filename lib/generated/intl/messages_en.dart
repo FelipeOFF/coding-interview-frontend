@@ -22,13 +22,29 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m0(x, s) => "≈ ${x} ${s}";
 
+  static String m1(x) => "≈ ${x}";
+
+  static String m2(x) =>
+      "${Intl.plural(x, one: '${x} Day', other: '${x} Days')}";
+
+  static String m3(x) =>
+      "${Intl.plural(x, one: '${x} Hour', other: '${x} Hours')}";
+
+  static String m4(x) =>
+      "${Intl.plural(x, one: '${x} Min', other: '${x} Min')}";
+
+  static String m5(x) =>
+      "${Intl.plural(x, one: '${x} Sec', other: '${x} Sec')}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "approximatelyEqual": m0,
+    "approximatelyEqualUniqValue": m1,
     "bolvaresBs": MessageLookupByLibrary.simpleMessage("Bolívares (Bs)"),
     "change": MessageLookupByLibrary.simpleMessage("Change"),
     "close": MessageLookupByLibrary.simpleMessage("Close"),
     "cripto": MessageLookupByLibrary.simpleMessage("Cripto"),
+    "day": m2,
     "enterYourAmount": MessageLookupByLibrary.simpleMessage(
       "Enter your amount",
     ),
@@ -36,6 +52,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "estimateTime": MessageLookupByLibrary.simpleMessage("Estimate Time"),
     "fiat": MessageLookupByLibrary.simpleMessage("FIAT"),
     "have": MessageLookupByLibrary.simpleMessage("HAVE"),
+    "hour": m3,
+    "justNow": MessageLookupByLibrary.simpleMessage("Just now"),
+    "min": m4,
     "nothing": MessageLookupByLibrary.simpleMessage("-"),
     "ops": MessageLookupByLibrary.simpleMessage("Ops..."),
     "pesoColombianoCol": MessageLookupByLibrary.simpleMessage(
@@ -47,6 +66,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "realBrasileiroR": MessageLookupByLibrary.simpleMessage(
       "\'Real Brasileiro (R\$)",
     ),
+    "sec": m5,
     "solPeruanoS": MessageLookupByLibrary.simpleMessage("Sol Peruano (S/)"),
     "somethingWrongHappenedPleaseTryAgainLater":
         MessageLookupByLibrary.simpleMessage(

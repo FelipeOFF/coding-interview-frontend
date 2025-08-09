@@ -23,6 +23,15 @@
       }
     }
   },
+  "approximatelyEqualUniqValue": "≈ {x}",
+  "@approximatelyEqualUniqValue": {
+    "description": "This is an example of approximately equal",
+    "placeholders": {
+      "x": {
+        "type": "String"
+      }
+    }
+  },
   "change": "Change",
   "bolvaresBs": "Bolívares (Bs)",
   "tetherUsdt": "Tether (USDT)",
@@ -33,5 +42,39 @@
   "fiat": "FIAT",
   "cripto": "Cripto",
   "usdt": "USDT",
-  "usdc": "USDC"
+  "usdc": "USDC",
+  "day": "{x, plural, one{{x} Day} other{{x} Days}}",
+  "@day": {
+    "description": "This is an example of day",
+    "placeholders": {
+      "x": {
+        "type": "int"
+      }
+    }
+  },
+  "hour": "{x, plural, one{{x} Hour} other{{x} Hours}}",
+  "@hour": {
+    "placeholders": {
+      "x": {
+        "type": "int"
+      }
+    }
+  },
+  "min": "{x, plural, one{{x} Min} other{{x} Min}}",
+  "@min": {
+    "placeholders": {
+      "x": {
+        "type": "int"
+      }
+    }
+  },
+  "sec": "{x, plural, one{{x} Sec} other{{x} Sec}}",
+  "@sec": {
+    "placeholders": {
+      "x": {
+        "type": "int"
+      }
+    }
+  },
+  "justNow": "Just now"
 }
