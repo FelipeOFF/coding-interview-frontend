@@ -13,6 +13,8 @@ class HomeController extends BaseController {
 
   final RxNotifier<bool> _switched = RxNotifier(false);
 
+  final RxNotifier<double> _amount = RxNotifier(0);
+
   RecommendationCurrency get haveCurrency => _haveCurrency.value;
   RecommendationCurrency get wantCurrency => _wantCurrency.value;
   set haveCurrency(RecommendationCurrency currency) =>
@@ -21,4 +23,6 @@ class HomeController extends BaseController {
       _wantCurrency.value = currency;
   bool get switched => _switched.value;
   set switched(bool value) => _switched.value = value;
+  double get amount => _amount.value;
+  set amount(double value) => _amount.value = value;
 }

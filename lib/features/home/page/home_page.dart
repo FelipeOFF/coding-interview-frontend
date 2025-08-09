@@ -4,6 +4,7 @@ import 'package:coding_interview_frontend/features/home/controller/home_controll
 import 'package:coding_interview_frontend/features/home/widgets/custom_paint_background.dart';
 import 'package:coding_interview_frontend/features/home/widgets/swap_input_loaded.dart';
 import 'package:coding_interview_frontend/generated/l10n.dart';
+import 'package:coding_interview_frontend/util/double_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -45,12 +46,15 @@ class _HomePageState extends BaseStatePage<HomePage, HomeController> {
                           SwapInputLoaded(controller: controller),
                           const SizedBox(height: 8),
                           TextFormField(
+                            initialValue: controller.amount.toAppMoneyFraction,
                             inputFormatters: [
                               FilteringTextInputFormatter.digitsOnly,
                               LengthLimitingTextInputFormatter(50),
                               MoneyValueFormatter(),
                             ],
                             keyboardType: TextInputType.number,
+                            onChanged: (value) =>
+                                controller.amount = double.tryParse(value) ?? 0,
                             validator: (value) {
                               if (value == null ||
                                   value.isEmpty ||
