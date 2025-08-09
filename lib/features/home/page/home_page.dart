@@ -62,7 +62,9 @@ class _HomePageState extends BaseStatePage<HomePage, HomeController> {
                             ],
                             keyboardType: TextInputType.number,
                             validator: (value) {
-                              if (value == null || value.isEmpty) {
+                              if (value == null ||
+                                  value.isEmpty ||
+                                  double.tryParse(value) == 0) {
                                 return AppS.of(context).pleaseEnterAmount;
                               }
                               return null;
@@ -169,7 +171,14 @@ class _HomePageState extends BaseStatePage<HomePage, HomeController> {
                           SizedBox(
                             width: double.infinity,
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                final validation = _formKey.currentState
+                                    ?.validate();
+
+                                if (validation ?? false) {
+                                  print('Validated');
+                                }
+                              },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Theme.of(
                                   context,

@@ -36,7 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "nothing": MessageLookupByLibrary.simpleMessage("-"),
     "ops": MessageLookupByLibrary.simpleMessage("Ups..."),
     "pleaseEnterAmount": MessageLookupByLibrary.simpleMessage(
-      "Please enter amount",
+      "Please enter a valid amount",
     ),
     "somethingWrongHappenedPleaseTryAgainLater":
         MessageLookupByLibrary.simpleMessage(

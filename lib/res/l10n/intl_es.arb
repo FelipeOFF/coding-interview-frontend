@@ -7,7 +7,7 @@
   "have": "TENGO",
   "want": "QUIERO",
   "enterYourAmount": "Enter your amount",
-  "pleaseEnterAmount": "Please enter amount",
+  "pleaseEnterAmount": "Please enter a valid amount",
   "estimateTax": "Estimate Tax",
   "youWillReceive": "You will receive",
   "estimateTime": "Estimate Time",

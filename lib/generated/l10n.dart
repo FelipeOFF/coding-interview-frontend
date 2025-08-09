@@ -99,10 +99,10 @@ class AppS {
     );
   }
 
-  /// `Please enter amount`
+  /// `Please enter a valid amount`
   String get pleaseEnterAmount {
     return Intl.message(
-      'Please enter amount',
+      'Please enter a valid amount',
       name: 'pleaseEnterAmount',
       desc: '',
       args: [],
