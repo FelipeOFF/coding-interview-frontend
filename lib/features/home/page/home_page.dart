@@ -94,7 +94,7 @@ class DataValue extends StatelessWidget {
         KeyValueEntryWidget(
           title: AppS.of(context).estimateTax,
           value: AppS.of(context).approximatelyEqual(
-            controller.result?.totalTax ?? AppS.of(context).nothing,
+            controller.result.totalTax,
             controller.getCurrencyInfoByWant().name,
           ),
         ),
@@ -102,7 +102,7 @@ class DataValue extends StatelessWidget {
         KeyValueEntryWidget(
           title: AppS.of(context).youWillReceive,
           value: AppS.of(context).approximatelyEqual(
-            controller.result?.totalAmount ?? AppS.of(context).nothing,
+            controller.result.totalAmount,
             controller.getCurrencyInfoByWant().name,
           ),
         ),
@@ -110,7 +110,7 @@ class DataValue extends StatelessWidget {
         KeyValueEntryWidget(
           title: AppS.of(context).estimateTime,
           value: AppS.of(context).approximatelyEqualUniqValue(
-            controller.result?.estToFinish?.formatDateToLess() ??
+            controller.result.estToFinish?.formatDateToLess() ??
                 AppS.of(context).nothing,
           ),
         ),

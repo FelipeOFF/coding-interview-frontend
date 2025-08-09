@@ -92,6 +92,7 @@ class ErrorDialog extends StatelessWidget {
     isDismissible: isDismissible,
     useRootNavigator: useRootNavigator,
     maxHeight: MediaQuery.of(context).size.height * 0.5,
+    backgroundColor: Colors.white,
     child: ErrorDialog(
       title: title,
       message: message,

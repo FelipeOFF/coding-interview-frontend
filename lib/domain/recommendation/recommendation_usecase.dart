@@ -17,8 +17,10 @@ class RecommendationUseCase
     final result = await repository.getRecommendation(param);
     final fiatToCryptoExchangeRate =
         result.data?.byPrice?.fiatToCryptoExchangeRate;
-    final exchangeRate =
-        double.tryParse(fiatToCryptoExchangeRate ?? '1') ?? 1.0;
+    if (fiatToCryptoExchangeRate == null) {
+      return const RecommendationModel(totalTax: '0.00', totalAmount: '0.00');
+    }
+    final exchangeRate = double.tryParse(fiatToCryptoExchangeRate) ?? 1.0;
 
     final convertedAmount = exchangeRate > param.amount
         ? param.amount / exchangeRate
@@ -31,6 +33,5 @@ class RecommendationUseCase
         Duration(minutes: 5 + Random().nextInt(45)),
       ),
     );
-
   }
 }

@@ -317,9 +317,9 @@ void main() {
         final result = await useCase.execute(mockReq);
 
         // Assert
-        final timeDifference = result.estToFinish.difference(now);
-        expect(timeDifference.inMinutes, greaterThanOrEqualTo(5));
-        expect(timeDifference.inMinutes, lessThanOrEqualTo(50));
+        final timeDifference = result.estToFinish?.difference(now);
+        expect(timeDifference?.inMinutes, greaterThanOrEqualTo(5));
+        expect(timeDifference?.inMinutes, lessThanOrEqualTo(50));
       });
 
       test('handles zero amount', () async {

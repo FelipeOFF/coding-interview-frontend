@@ -27,7 +27,7 @@ class HomeController extends BaseController {
 
   final RxNotifier<double> _amount = RxNotifier(0);
 
-  final RxNotifier<RecommendationModel> _result = RxNotifier(
+  late final RxNotifier<RecommendationModel> _result = RxNotifier(
     RecommendationModel(
       totalTax: AppS.current.defaultTaxValue,
       totalAmount: AppS.current.defaultTotalAmountValue,
@@ -89,7 +89,10 @@ class HomeController extends BaseController {
 
   double get amount => _amount.value;
 
-  set amount(double value) => _amount.value = value;
+  set amount(double value) {
+    _amount.value = value;
+    fetchChange();
+  }
 
   RecommendationModel get result => _result.value;
 
