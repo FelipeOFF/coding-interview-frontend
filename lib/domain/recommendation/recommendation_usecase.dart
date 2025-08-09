@@ -26,8 +26,8 @@ class RecommendationUseCase
     final amount = param.amount;
 
     final totalTax = type == 0
-        ? amount * exchangeRate
-        : exchangeRate / amount;
+        ? amount * exchangeRate * 0.01
+        : exchangeRate / amount * 0.01;
     final totalWithTax = type == 0
         ? amount * exchangeRate
         : amount / exchangeRate;
