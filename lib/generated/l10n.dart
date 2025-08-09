@@ -153,6 +153,86 @@ class AppS {
   String get change {
     return Intl.message('Change', name: 'change', desc: '', args: []);
   }
+
+  /// `Bolívares (Bs)`
+  String get bolvaresBs {
+    return Intl.message(
+      'Bolívares (Bs)',
+      name: 'bolvaresBs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tether (USDT)`
+  String get tetherUsdt {
+    return Intl.message(
+      'Tether (USDT)',
+      name: 'tetherUsdt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `USD Coin (USDC)`
+  String get usdCoinUsdc {
+    return Intl.message(
+      'USD Coin (USDC)',
+      name: 'usdCoinUsdc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sol Peruano (S/)`
+  String get solPeruanoS {
+    return Intl.message(
+      'Sol Peruano (S/)',
+      name: 'solPeruanoS',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `'Peso Colombiano (COL$)`
+  String get pesoColombianoCol {
+    return Intl.message(
+      '\'Peso Colombiano (COL\$)',
+      name: 'pesoColombianoCol',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `'Real Brasileiro (R$)`
+  String get realBrasileiroR {
+    return Intl.message(
+      '\'Real Brasileiro (R\$)',
+      name: 'realBrasileiroR',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `FIAT`
+  String get fiat {
+    return Intl.message('FIAT', name: 'fiat', desc: '', args: []);
+  }
+
+  /// `Cripto`
+  String get cripto {
+    return Intl.message('Cripto', name: 'cripto', desc: '', args: []);
+  }
+
+  /// `USDT`
+  String get usdt {
+    return Intl.message('USDT', name: 'usdt', desc: '', args: []);
+  }
+
+  /// `USDC`
+  String get usdc {
+    return Intl.message('USDC', name: 'usdc', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppS> {

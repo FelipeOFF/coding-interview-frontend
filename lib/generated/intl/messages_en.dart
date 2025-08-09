@@ -25,23 +25,37 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "approximatelyEqual": m0,
+    "bolvaresBs": MessageLookupByLibrary.simpleMessage("Bolívares (Bs)"),
     "change": MessageLookupByLibrary.simpleMessage("Change"),
     "close": MessageLookupByLibrary.simpleMessage("Close"),
+    "cripto": MessageLookupByLibrary.simpleMessage("Cripto"),
     "enterYourAmount": MessageLookupByLibrary.simpleMessage(
       "Enter your amount",
     ),
     "estimateTax": MessageLookupByLibrary.simpleMessage("Estimate Tax"),
     "estimateTime": MessageLookupByLibrary.simpleMessage("Estimate Time"),
+    "fiat": MessageLookupByLibrary.simpleMessage("FIAT"),
     "have": MessageLookupByLibrary.simpleMessage("HAVE"),
     "nothing": MessageLookupByLibrary.simpleMessage("-"),
     "ops": MessageLookupByLibrary.simpleMessage("Ops..."),
+    "pesoColombianoCol": MessageLookupByLibrary.simpleMessage(
+      "\'Peso Colombiano (COL\$)",
+    ),
     "pleaseEnterAmount": MessageLookupByLibrary.simpleMessage(
       "Please enter a valid amount",
     ),
+    "realBrasileiroR": MessageLookupByLibrary.simpleMessage(
+      "\'Real Brasileiro (R\$)",
+    ),
+    "solPeruanoS": MessageLookupByLibrary.simpleMessage("Sol Peruano (S/)"),
     "somethingWrongHappenedPleaseTryAgainLater":
         MessageLookupByLibrary.simpleMessage(
           "Something wrong happened, please try again later",
         ),
+    "tetherUsdt": MessageLookupByLibrary.simpleMessage("Tether (USDT)"),
+    "usdCoinUsdc": MessageLookupByLibrary.simpleMessage("USD Coin (USDC)"),
+    "usdc": MessageLookupByLibrary.simpleMessage("USDC"),
+    "usdt": MessageLookupByLibrary.simpleMessage("USDT"),
     "want": MessageLookupByLibrary.simpleMessage("WANT"),
     "youWillReceive": MessageLookupByLibrary.simpleMessage("You will receive"),
   };

@@ -20,14 +20,43 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends BaseStatePage<HomePage, HomeController> {
   final GlobalKey<FormState> _formKey = GlobalKey();
 
-  final Map<RecommendationCurrency, AssetGenImage> _currencyImages = {
-    RecommendationCurrency.brl: Assets.fiatCurrencies.brl,
-    RecommendationCurrency.cop: Assets.fiatCurrencies.cop,
-    RecommendationCurrency.pen: Assets.fiatCurrencies.pen,
-    RecommendationCurrency.ves: Assets.fiatCurrencies.ves,
-    RecommendationCurrency.tatumTronUSDT: Assets.criptoCurrencies.tatumTronUsdt,
-    RecommendationCurrency.tatumTronUSDC: Assets.criptoCurrencies.tatumTronUsdt,
-  };
+  List<CurrencyInfo> get _currencyImages => [
+    CurrencyInfo(
+      currency: RecommendationCurrency.brl,
+      image: Assets.fiatCurrencies.brl,
+      description: AppS.of(context).realBrasileiroR,
+    ),
+    CurrencyInfo(
+      currency: RecommendationCurrency.cop,
+      image: Assets.fiatCurrencies.cop,
+      description: AppS.of(context).pesoColombianoCol,
+    ),
+    CurrencyInfo(
+      currency: RecommendationCurrency.pen,
+      image: Assets.fiatCurrencies.pen,
+      description: AppS.of(context).solPeruanoS,
+    ),
+    CurrencyInfo(
+      currency: RecommendationCurrency.ves,
+      image: Assets.fiatCurrencies.ves,
+      description: AppS.of(context).bolvaresBs,
+    ),
+    CurrencyInfo(
+      name: AppS.of(context).usdt,
+      currency: RecommendationCurrency.tatumTronUSDT,
+      image: Assets.criptoCurrencies.tatumTronUsdt,
+      description: AppS.of(context).tetherUsdt,
+    ),
+    CurrencyInfo(
+      name: AppS.of(context).usdc,
+      currency: RecommendationCurrency.tatumTronUSDC,
+      image: Assets.criptoCurrencies.tatumTronUsdt,
+      description: AppS.of(context).usdCoinUsdc,
+    ),
+  ];
+
+  CurrencyInfo _getCurrencyInfoBySelected(RecommendationCurrency currency) =>
+      _currencyImages.firstWhere((element) => element.currency == currency);
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -63,33 +92,8 @@ class _HomePageState extends BaseStatePage<HomePage, HomeController> {
                             leftCoin: 'USDT',
                             rightCoin: 'VES',
                             onSwap: print,
-                            onLeft: () async {
-                              final recommendationCurrency =
-                                  await AppDialog.show<RecommendationCurrency>(
-                                    context: context,
-                                    title: 'FIAT',
-                                    backgroundColor: Colors.white,
-                                    scrollable: true,
-                                    child: ListView.builder(
-                                      itemCount:
-                                          RecommendationCurrency.fiat.length,
-                                      itemBuilder: (context, index) {
-                                        final item =
-                                            RecommendationCurrency.fiat[index];
-                                        final currentImage =
-                                            _currencyImages[item];
-                                        return ListTile(
-                                          title: Text(item.name),
-                                          leading: currentImage?.image(),
-                                          onTap: () {
-                                            Navigator.of(context).pop(item);
-                                          },
-                                        );
-                                      },
-                                    ),
-                                  );
-                            },
-                            onRight: () {},
+                            onLeft: _showCriptoDialog,
+                            onRight: _showFiatDialog,
                           ),
                           const SizedBox(height: 8),
                           TextFormField(
@@ -246,4 +250,98 @@ class _HomePageState extends BaseStatePage<HomePage, HomeController> {
       ],
     ),
   );
+
+  Future<void> _showFiatDialog() async {
+    final recommendationCurrency = await AppDialog.show<RecommendationCurrency>(
+      context: context,
+      title: AppS.of(context).fiat,
+      backgroundColor: Colors.white,
+      scrollable: true,
+      child: ListView.separated(
+        itemCount: RecommendationCurrency.fiat.length,
+        physics: const NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        itemBuilder: (context, index) {
+          final item = RecommendationCurrency.fiat[index];
+          final currentImage = _getCurrencyInfoBySelected(item);
+          return ListTile(
+            title: Text(
+              item.value,
+              style: Theme.of(
+                context,
+              ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600),
+            ),
+            subtitle: Text(
+              currentImage.description,
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+            leading: SizedBox.square(
+              dimension: 32,
+              child: currentImage.image.image(),
+            ),
+            onTap: () {
+              Navigator.of(context).pop(item);
+            },
+          );
+        },
+        separatorBuilder: (context, index) => const SizedBox(height: 16),
+      ),
+    );
+
+    controller.wantCurrency = recommendationCurrency ?? controller.wantCurrency;
+  }
+
+  Future<void> _showCriptoDialog() async {
+    final recommendationCurrency = await AppDialog.show<RecommendationCurrency>(
+      context: context,
+      title: AppS.of(context).cripto,
+      backgroundColor: Colors.white,
+      scrollable: true,
+      child: ListView.separated(
+        itemCount: RecommendationCurrency.crypto.length,
+        physics: const NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        itemBuilder: (context, index) {
+          final item = RecommendationCurrency.crypto[index];
+          final currentImage = _getCurrencyInfoBySelected(item);
+          return ListTile(
+            title: Text(
+              currentImage.name ?? item.value,
+              style: Theme.of(
+                context,
+              ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600),
+            ),
+            subtitle: Text(
+              currentImage.description,
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+            leading: SizedBox.square(
+              dimension: 32,
+              child: currentImage.image.image(),
+            ),
+            onTap: () {
+              Navigator.of(context).pop(item);
+            },
+          );
+        },
+        separatorBuilder: (context, index) => const SizedBox(height: 16),
+      ),
+    );
+
+    controller.haveCurrency = recommendationCurrency ?? controller.haveCurrency;
+  }
+}
+
+class CurrencyInfo {
+  CurrencyInfo({
+    required this.currency,
+    required this.description,
+    required this.image,
+    this.name,
+  });
+
+  final String? name;
+  final RecommendationCurrency currency;
+  final String description;
+  final AssetGenImage image;
 }

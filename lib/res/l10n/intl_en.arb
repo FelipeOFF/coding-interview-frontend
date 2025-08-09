@@ -23,5 +23,15 @@
       }
     }
   },
-  "change": "Change"
+  "change": "Change",
+  "bolvaresBs": "Bolívares (Bs)",
+  "tetherUsdt": "Tether (USDT)",
+  "usdCoinUsdc": "USD Coin (USDC)",
+  "solPeruanoS": "Sol Peruano (S/)",
+  "pesoColombianoCol": "'Peso Colombiano (COL$)",
+  "realBrasileiroR": "'Real Brasileiro (R$)",
+  "fiat": "FIAT",
+  "cripto": "Cripto",
+  "usdt": "USDT",
+  "usdc": "USDC"
 }

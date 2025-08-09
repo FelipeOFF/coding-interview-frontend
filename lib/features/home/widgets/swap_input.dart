@@ -72,7 +72,7 @@ class _SwapInputState extends State<SwapInput>
 
   @override
   Widget build(BuildContext context) {
-    const yellow = Color(0xFFF6A800);
+    final yellow = Theme.of(context).colorScheme.primary;
     const stroke = 3.0;
     const radius = 40.0;
 

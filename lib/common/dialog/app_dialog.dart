@@ -180,19 +180,34 @@ class AppDialog extends StatelessWidget {
     isDismissible: isDismissible,
     useRootNavigator: useRootNavigator,
     isScrollControlled: true,
-    builder: (context) => AppDialog(
-      title: title,
-      titleWidget: titleWidget,
-      scrollable: scrollable,
-      draggable: draggable,
-      maxHeight: maxHeight,
-      initialHeight: initialHeight,
-      backgroundColor: backgroundColor,
-      borderRadius: borderRadius,
-      showDragHandle: showDragHandle,
-      contentPadding: contentPadding,
-      isDismissible: isDismissible,
-      child: child,
+    enableDrag: isDismissible,
+    // Add this line
+    builder: (context) => GestureDetector(
+      onTap: isDismissible ? () => Navigator.of(context).pop() : null,
+      behavior: HitTestBehavior.opaque,
+      // This ensures the gesture detector captures taps
+      child: Container(
+        color: Colors.transparent,
+        // Transparent container to capture taps
+        child: GestureDetector(
+          onTap: () {},
+          // Prevent taps on the dialog content from closing it
+          child: AppDialog(
+            title: title,
+            titleWidget: titleWidget,
+            scrollable: scrollable,
+            draggable: draggable,
+            maxHeight: maxHeight,
+            initialHeight: initialHeight,
+            backgroundColor: backgroundColor,
+            borderRadius: borderRadius,
+            showDragHandle: showDragHandle,
+            contentPadding: contentPadding,
+            isDismissible: isDismissible,
+            child: child,
+          ),
+        ),
+      ),
     ),
   );
 }
