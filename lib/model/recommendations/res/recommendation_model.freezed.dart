@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$RecommendationModel {
 
- String get totalTax; String get totalAmount; DateTime get estToFinish;
+ String get totalTax; String get totalAmount; DateTime? get estToFinish;
 /// Create a copy of RecommendationModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $RecommendationModelCopyWith<$Res>  {
   factory $RecommendationModelCopyWith(RecommendationModel value, $Res Function(RecommendationModel) _then) = _$RecommendationModelCopyWithImpl;
 @useResult
 $Res call({
- String totalTax, String totalAmount, DateTime estToFinish
+ String totalTax, String totalAmount, DateTime? estToFinish
 });
 
 
@@ -65,12 +65,12 @@ class _$RecommendationModelCopyWithImpl<$Res>
 
 /// Create a copy of RecommendationModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? totalTax = null,Object? totalAmount = null,Object? estToFinish = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? totalTax = null,Object? totalAmount = null,Object? estToFinish = freezed,}) {
   return _then(_self.copyWith(
 totalTax: null == totalTax ? _self.totalTax : totalTax // ignore: cast_nullable_to_non_nullable
 as String,totalAmount: null == totalAmount ? _self.totalAmount : totalAmount // ignore: cast_nullable_to_non_nullable
-as String,estToFinish: null == estToFinish ? _self.estToFinish : estToFinish // ignore: cast_nullable_to_non_nullable
-as DateTime,
+as String,estToFinish: freezed == estToFinish ? _self.estToFinish : estToFinish // ignore: cast_nullable_to_non_nullable
+as DateTime?,
   ));
 }
 
@@ -155,7 +155,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String totalTax,  String totalAmount,  DateTime estToFinish)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String totalTax,  String totalAmount,  DateTime? estToFinish)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _RecommendationModel() when $default != null:
 return $default(_that.totalTax,_that.totalAmount,_that.estToFinish);case _:
@@ -176,7 +176,7 @@ return $default(_that.totalTax,_that.totalAmount,_that.estToFinish);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String totalTax,  String totalAmount,  DateTime estToFinish)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String totalTax,  String totalAmount,  DateTime? estToFinish)  $default,) {final _that = this;
 switch (_that) {
 case _RecommendationModel():
 return $default(_that.totalTax,_that.totalAmount,_that.estToFinish);case _:
@@ -196,7 +196,7 @@ return $default(_that.totalTax,_that.totalAmount,_that.estToFinish);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String totalTax,  String totalAmount,  DateTime estToFinish)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String totalTax,  String totalAmount,  DateTime? estToFinish)?  $default,) {final _that = this;
 switch (_that) {
 case _RecommendationModel() when $default != null:
 return $default(_that.totalTax,_that.totalAmount,_that.estToFinish);case _:
@@ -211,12 +211,12 @@ return $default(_that.totalTax,_that.totalAmount,_that.estToFinish);case _:
 @JsonSerializable()
 
 class _RecommendationModel implements RecommendationModel {
-  const _RecommendationModel({required this.totalTax, required this.totalAmount, required this.estToFinish});
+  const _RecommendationModel({required this.totalTax, required this.totalAmount, this.estToFinish});
   factory _RecommendationModel.fromJson(Map<String, dynamic> json) => _$RecommendationModelFromJson(json);
 
 @override final  String totalTax;
 @override final  String totalAmount;
-@override final  DateTime estToFinish;
+@override final  DateTime? estToFinish;
 
 /// Create a copy of RecommendationModel
 /// with the given fields replaced by the non-null parameter values.
@@ -251,7 +251,7 @@ abstract mixin class _$RecommendationModelCopyWith<$Res> implements $Recommendat
   factory _$RecommendationModelCopyWith(_RecommendationModel value, $Res Function(_RecommendationModel) _then) = __$RecommendationModelCopyWithImpl;
 @override @useResult
 $Res call({
- String totalTax, String totalAmount, DateTime estToFinish
+ String totalTax, String totalAmount, DateTime? estToFinish
 });
 
 
@@ -268,12 +268,12 @@ class __$RecommendationModelCopyWithImpl<$Res>
 
 /// Create a copy of RecommendationModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? totalTax = null,Object? totalAmount = null,Object? estToFinish = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? totalTax = null,Object? totalAmount = null,Object? estToFinish = freezed,}) {
   return _then(_RecommendationModel(
 totalTax: null == totalTax ? _self.totalTax : totalTax // ignore: cast_nullable_to_non_nullable
 as String,totalAmount: null == totalAmount ? _self.totalAmount : totalAmount // ignore: cast_nullable_to_non_nullable
-as String,estToFinish: null == estToFinish ? _self.estToFinish : estToFinish // ignore: cast_nullable_to_non_nullable
-as DateTime,
+as String,estToFinish: freezed == estToFinish ? _self.estToFinish : estToFinish // ignore: cast_nullable_to_non_nullable
+as DateTime?,
   ));
 }
 

@@ -27,7 +27,12 @@ class HomeController extends BaseController {
 
   final RxNotifier<double> _amount = RxNotifier(0);
 
-  final RxNotifier<RecommendationModel?> _result = RxNotifier(null);
+  final RxNotifier<RecommendationModel> _result = RxNotifier(
+    RecommendationModel(
+      totalTax: AppS.current.defaultTaxValue,
+      totalAmount: AppS.current.defaultTotalAmountValue,
+    ),
+  );
 
   List<CurrencyInfo> get _currencyImages => [
     CurrencyInfo(
@@ -86,9 +91,9 @@ class HomeController extends BaseController {
 
   set amount(double value) => _amount.value = value;
 
-  RecommendationModel? get result => _result.value;
+  RecommendationModel get result => _result.value;
 
-  set result(RecommendationModel? value) => _result.value = value;
+  set result(RecommendationModel value) => _result.value = value;
 
   CurrencyInfo getCurrencyInfoBySelected(RecommendationCurrency currency) =>
       _currencyImages.firstWhere((element) => element.currency == currency);
@@ -119,6 +124,6 @@ class HomeController extends BaseController {
       fiatCurrencyId: wantCurrency,
       amountCurrencyId: switched ? haveCurrency : wantCurrency,
     );
-    result = await exec(recommendationReq, useCase);
+    result = await exec(recommendationReq, useCase) ?? result;
   }
 }

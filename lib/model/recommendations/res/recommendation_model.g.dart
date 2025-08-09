@@ -10,7 +10,9 @@ _RecommendationModel _$RecommendationModelFromJson(Map<String, dynamic> json) =>
     _RecommendationModel(
       totalTax: json['totalTax'] as String,
       totalAmount: json['totalAmount'] as String,
-      estToFinish: DateTime.parse(json['estToFinish'] as String),
+      estToFinish: json['estToFinish'] == null
+          ? null
+          : DateTime.parse(json['estToFinish'] as String),
     );
 
 Map<String, dynamic> _$RecommendationModelToJson(
@@ -18,5 +20,5 @@ Map<String, dynamic> _$RecommendationModelToJson(
 ) => <String, dynamic>{
   'totalTax': instance.totalTax,
   'totalAmount': instance.totalAmount,
-  'estToFinish': instance.estToFinish.toIso8601String(),
+  'estToFinish': instance.estToFinish?.toIso8601String(),
 };

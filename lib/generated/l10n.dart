@@ -296,6 +296,21 @@ class AppS {
   String get justNow {
     return Intl.message('Just now', name: 'justNow', desc: '', args: []);
   }
+
+  /// `0.00`
+  String get defaultTaxValue {
+    return Intl.message('0.00', name: 'defaultTaxValue', desc: '', args: []);
+  }
+
+  /// `0.00`
+  String get defaultTotalAmountValue {
+    return Intl.message(
+      '0.00',
+      name: 'defaultTotalAmountValue',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppS> {

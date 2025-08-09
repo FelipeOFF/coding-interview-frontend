@@ -45,6 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "close": MessageLookupByLibrary.simpleMessage("Close"),
     "cripto": MessageLookupByLibrary.simpleMessage("Cripto"),
     "day": m2,
+    "defaultTaxValue": MessageLookupByLibrary.simpleMessage("0.00"),
     "enterYourAmount": MessageLookupByLibrary.simpleMessage(
       "Enter your amount",
     ),

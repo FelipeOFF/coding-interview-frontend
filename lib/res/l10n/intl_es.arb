@@ -76,5 +76,6 @@
       }
     }
   },
-  "justNow": "Just now"
+  "justNow": "Just now",
+  "defaultTaxValue": "0.00"
 }

@@ -110,7 +110,7 @@ class DataValue extends StatelessWidget {
         KeyValueEntryWidget(
           title: AppS.of(context).estimateTime,
           value: AppS.of(context).approximatelyEqualUniqValue(
-            controller.result?.estToFinish.formatDateToLess() ??
+            controller.result?.estToFinish?.formatDateToLess() ??
                 AppS.of(context).nothing,
           ),
         ),
