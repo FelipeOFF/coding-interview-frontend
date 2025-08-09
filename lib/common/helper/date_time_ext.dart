@@ -3,7 +3,7 @@ import 'package:coding_interview_frontend/generated/l10n.dart';
 extension DateTimeExt on DateTime {
   String formatDateToLess() {
     final now = DateTime.now();
-    final difference = now.difference(this);
+    final difference = this.difference(now);
 
     if (difference.inDays > 0) {
       return AppS.current.day(difference.inDays);

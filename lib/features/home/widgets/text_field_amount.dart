@@ -1,5 +1,6 @@
 import 'package:coding_interview_frontend/common/helper/money_value_formatter.dart';
 import 'package:coding_interview_frontend/features/home/controller/home_controller.dart';
+import 'package:coding_interview_frontend/generated/l10n.dart';
 import 'package:coding_interview_frontend/util/double_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -28,6 +29,8 @@ class TextFieldAmount extends StatelessWidget {
       onChanged: (value) => controller.amount = double.tryParse(value) ?? 0,
       validator: (value) {
         if (value == null || value.isEmpty || double.tryParse(value) == 0) {
+          return AppS.of(context).amountMustBeGreaterThan0;
+        } else if (controller.result == null) {
           return errorText;
         }
         return null;

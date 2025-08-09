@@ -81,5 +81,6 @@
   "defaultTotalAmountValue": "0.00",
   "yourTransactionHasBeenCompletedSuccessfully": "Your transaction has been completed successfully.",
   "ok": "OK",
-  "success": "Success!"
+  "success": "Success!",
+  "amountMustBeGreaterThan0": "Amount must be greater than 0"
 }

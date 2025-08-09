@@ -38,6 +38,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "amountMustBeGreaterThan0": MessageLookupByLibrary.simpleMessage(
+      "Amount must be greater than 0",
+    ),
     "approximatelyEqual": m0,
     "approximatelyEqualUniqValue": m1,
     "bolvaresBs": MessageLookupByLibrary.simpleMessage("Bolívares (Bs)"),

@@ -331,6 +331,16 @@ class AppS {
   String get success {
     return Intl.message('Success!', name: 'success', desc: '', args: []);
   }
+
+  /// `Amount must be greater than 0`
+  String get amountMustBeGreaterThan0 {
+    return Intl.message(
+      'Amount must be greater than 0',
+      name: 'amountMustBeGreaterThan0',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppS> {
