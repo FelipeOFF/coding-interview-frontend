@@ -1,11 +1,20 @@
+import 'dart:async';
+
 import 'package:coding_interview_frontend/common/base/base_controller.dart';
+import 'package:coding_interview_frontend/domain/recommendation/recommendation_usecase.dart';
 import 'package:coding_interview_frontend/features/home/model/currency_info.dart';
 import 'package:coding_interview_frontend/gen/assets.gen.dart';
 import 'package:coding_interview_frontend/generated/l10n.dart';
 import 'package:coding_interview_frontend/model/recommendations/recommendation_currency.dart';
+import 'package:coding_interview_frontend/model/recommendations/req/recommendation_req.dart';
+import 'package:coding_interview_frontend/model/recommendations/res/recommendation_model.dart';
 import 'package:rx_notifier/rx_notifier.dart';
 
 class HomeController extends BaseController {
+  HomeController({required this.useCase});
+
+  final RecommendationUseCase useCase;
+
   final RxNotifier<RecommendationCurrency> _haveCurrency = RxNotifier(
     RecommendationCurrency.tatumTronUSDC,
   );
@@ -17,6 +26,8 @@ class HomeController extends BaseController {
   final RxNotifier<bool> _switched = RxNotifier(false);
 
   final RxNotifier<double> _amount = RxNotifier(0);
+
+  final RxNotifier<RecommendationModel?> _result = RxNotifier(null);
 
   List<CurrencyInfo> get _currencyImages => [
     CurrencyInfo(
@@ -75,6 +86,10 @@ class HomeController extends BaseController {
 
   set amount(double value) => _amount.value = value;
 
+  RecommendationModel? get result => _result.value;
+
+  set result(RecommendationModel? value) => _result.value = value;
+
   CurrencyInfo getCurrencyInfoBySelected(RecommendationCurrency currency) =>
       _currencyImages.firstWhere((element) => element.currency == currency);
 
@@ -83,4 +98,27 @@ class HomeController extends BaseController {
 
   CurrencyInfo getCurrencyInfoByWant() =>
       getCurrencyInfoBySelected(switched ? haveCurrency : wantCurrency);
+
+  Timer? _timer;
+
+  Future<void> fetchChange() async {
+    if (amount <= 0) {
+      return;
+    }
+    _timer?.cancel();
+    _timer = Timer(const Duration(seconds: 2), () async {
+      await _fetchChange();
+    });
+  }
+
+  Future<void> _fetchChange() async {
+    final RecommendationReq recommendationReq = RecommendationReq(
+      type: switched ? 1 : 0,
+      amount: amount,
+      cryptoCurrencyId: haveCurrency,
+      fiatCurrencyId: wantCurrency,
+      amountCurrencyId: switched ? haveCurrency : wantCurrency,
+    );
+    result = await exec(recommendationReq, useCase);
+  }
 }

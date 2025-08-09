@@ -94,7 +94,7 @@ void main() {
         ).thenAnswer((_) async => const Right(expectedOutput));
 
         // Act
-        final result = await controller.execSingle(
+        final result = await controller.exec(
           input,
           mockUseCase,
           showLoading: false,
@@ -121,7 +121,7 @@ void main() {
         });
 
         // Act
-        await controller.execSingle(input, mockUseCase);
+        await controller.exec(input, mockUseCase);
 
         // Assert
         expect(loadingStates, contains(true));
@@ -141,7 +141,7 @@ void main() {
         final initialLoading = controller.isLoading;
 
         // Act
-        await controller.execSingle(input, mockUseCase, showLoading: false);
+        await controller.exec(input, mockUseCase, showLoading: false);
 
         // Assert
         expect(controller.isLoading, equals(initialLoading));
@@ -174,8 +174,8 @@ void main() {
 
         // Act
         final futures = [
-          controller.execSingle('input1', mockUseCase, showLoading: false),
-          controller.execSingle('input2', mockUseCase, showLoading: false),
+          controller.exec('input1', mockUseCase, showLoading: false),
+          controller.exec('input2', mockUseCase, showLoading: false),
         ];
 
         final results = await Future.wait(futures);

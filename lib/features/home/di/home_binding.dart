@@ -5,6 +5,6 @@ import 'package:get_it/get_it.dart';
 class HomeBinding extends AbstractBinding {
   @override
   Future<void> binding(GetIt it) async {
-    it.registerSingleton<HomeController>(HomeController());
+    it.registerSingleton<HomeController>(HomeController(useCase: it.get()));
   }
 }

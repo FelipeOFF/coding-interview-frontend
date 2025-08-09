@@ -23,7 +23,7 @@ abstract class BaseController {
     _isLoading = RxNotifier(null);
   }
 
-  Future<R?> execSingle<P, R>(
+  Future<R?> exec<P, R>(
     P value,
     AbstractUseCase<P, R> useCase, {
     CallBackError? mapError,

@@ -186,7 +186,7 @@ class AppDialog extends StatelessWidget {
       onTap: isDismissible ? () => Navigator.of(context).pop() : null,
       behavior: HitTestBehavior.opaque,
       // This ensures the gesture detector captures taps
-      child: Container(
+      child: ColoredBox(
         color: Colors.transparent,
         // Transparent container to capture taps
         child: GestureDetector(
