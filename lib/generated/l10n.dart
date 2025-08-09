@@ -311,6 +311,26 @@ class AppS {
       args: [],
     );
   }
+
+  /// `Your transaction has been completed successfully.`
+  String get yourTransactionHasBeenCompletedSuccessfully {
+    return Intl.message(
+      'Your transaction has been completed successfully.',
+      name: 'yourTransactionHasBeenCompletedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `OK`
+  String get ok {
+    return Intl.message('OK', name: 'ok', desc: '', args: []);
+  }
+
+  /// `Success!`
+  String get success {
+    return Intl.message('Success!', name: 'success', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppS> {

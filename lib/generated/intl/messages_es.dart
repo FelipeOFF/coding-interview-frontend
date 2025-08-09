@@ -57,6 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "justNow": MessageLookupByLibrary.simpleMessage("Just now"),
     "min": m4,
     "nothing": MessageLookupByLibrary.simpleMessage("-"),
+    "ok": MessageLookupByLibrary.simpleMessage("OK"),
     "ops": MessageLookupByLibrary.simpleMessage("Ups..."),
     "pesoColombianoCol": MessageLookupByLibrary.simpleMessage(
       "\'Peso Colombiano (COL\$)",
@@ -73,11 +74,16 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Algo salió mal, por favor inténtalo de nuevo más tarde",
         ),
+    "success": MessageLookupByLibrary.simpleMessage("Success!"),
     "tetherUsdt": MessageLookupByLibrary.simpleMessage("Tether (USDT)"),
     "usdCoinUsdc": MessageLookupByLibrary.simpleMessage("USD Coin (USDC)"),
     "usdc": MessageLookupByLibrary.simpleMessage("USDC"),
     "usdt": MessageLookupByLibrary.simpleMessage("USDT"),
     "want": MessageLookupByLibrary.simpleMessage("QUIERO"),
     "youWillReceive": MessageLookupByLibrary.simpleMessage("You will receive"),
+    "yourTransactionHasBeenCompletedSuccessfully":
+        MessageLookupByLibrary.simpleMessage(
+          "Your transaction has been completed successfully.",
+        ),
   };
 }

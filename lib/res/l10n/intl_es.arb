@@ -77,5 +77,8 @@
     }
   },
   "justNow": "Just now",
-  "defaultTaxValue": "0.00"
+  "defaultTaxValue": "0.00",
+  "yourTransactionHasBeenCompletedSuccessfully": "Your transaction has been completed successfully.",
+  "ok": "OK",
+  "success": "Success!"
 }

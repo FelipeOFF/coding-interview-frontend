@@ -42,15 +42,11 @@ class TextFieldAmount extends StatelessWidget {
       decoration: InputDecoration(
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16.0),
-          borderSide: BorderSide(
-            color: Theme.of(context).colorScheme.primary,
-          ),
+          borderSide: BorderSide(color: Theme.of(context).colorScheme.primary),
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16.0),
-          borderSide: BorderSide(
-            color: Theme.of(context).colorScheme.primary,
-          ),
+          borderSide: BorderSide(color: Theme.of(context).colorScheme.primary),
         ),
         prefixIcon: LayoutBuilder(
           builder: (context, size) => SizedBox(
@@ -61,14 +57,12 @@ class TextFieldAmount extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 12.0),
                 child: RxBuilder(
                   builder: (context) => Text(
-                      controller
-                          .getCurrencyInfoByHave
-                          .name,
-                      style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                        fontSize: 12,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
-                    )
+                    controller.getCurrencyInfoByHave.name,
+                    style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                      fontSize: 12,
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                  ),
                 ),
               ),
             ),
