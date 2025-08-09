@@ -35,7 +35,8 @@ This project is a Flutter application developed as part of a technical interview
 - ❄️ **[freezed_annotation](https://pub.dev/packages/freezed_annotation)**: Annotations for generating immutable classes with copyWith, toString, equality and pattern matching
 - 🌐 **[flutter_pretty_dio_logger](https://pub.dev/packages/flutter_pretty_dio_logger)**: Logger for Dio HTTP requests with beautiful formatting
 - 📝 **[logger](https://pub.dev/packages/logger)**: Powerful logging utility for application debugging and monitoring
-- 📝 **[rx_notifier](https://pub.dev/packages/rx_notifier)**: Reactive state management for Flutter with RxDart
+- 📢 **[rx_notifier](https://pub.dev/packages/rx_notifier)**: Reactive state management for Flutter with RxDart
+- 🥷 **[skeletonizer](https://pub.dev/packages/skeletonizer)**: Widget wrapper that automatically creates loading state  UI with shimmering effect, making it easy to implement skeleton screens for loading states
 
 ### Functional Programming & Utilities
 - ⚡ **[fpdart](https://pub.dev/packages/fpdart)**: Functional programming in Dart with monads, functors, and algebraic data types for better error handling
