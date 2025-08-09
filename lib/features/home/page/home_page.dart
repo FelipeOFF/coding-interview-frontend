@@ -1,6 +1,7 @@
 import 'package:coding_interview_frontend/common/base/base_state_page.dart';
 import 'package:coding_interview_frontend/features/home/controller/home_controller.dart';
 import 'package:coding_interview_frontend/features/home/widgets/custom_paint_background.dart';
+import 'package:coding_interview_frontend/features/home/widgets/exec_button.dart';
 import 'package:coding_interview_frontend/features/home/widgets/key_value_entry_widget.dart';
 import 'package:coding_interview_frontend/features/home/widgets/swap_input_loaded.dart';
 import 'package:coding_interview_frontend/features/home/widgets/text_field_amount.dart';
@@ -95,25 +96,5 @@ class _HomePageState extends BaseStatePage<HomePage, HomeController> {
         ),
       ],
     ),
-  );
-}
-
-class ExecButton extends StatelessWidget {
-  const ExecButton({super.key, this.onPressed});
-
-  final VoidCallback? onPressed;
-
-  @override
-  Widget build(BuildContext context) => ElevatedButton(
-    onPressed: onPressed,
-    style: ElevatedButton.styleFrom(
-      backgroundColor: Theme.of(context).colorScheme.primary,
-      foregroundColor: Colors.white,
-      padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 12),
-      textStyle: Theme.of(
-        context,
-      ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
-    ),
-    child: Text(AppS.of(context).change),
   );
 }
