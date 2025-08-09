@@ -316,30 +316,53 @@ class _SwapInputLoadedState extends State<SwapInputLoaded> {
       itemBuilder: (context, index) {
         final item = listOfContent[index];
         final currentImage = _getCurrencyInfoBySelected(item);
-        return RadioListTile(
-          title: Text(
-            currentImage.name ?? item.value,
-            style: Theme.of(
-              context,
-            ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600),
-          ),
-          subtitle: Text(
-            currentImage.description,
-            style: Theme.of(context).textTheme.bodyMedium,
-          ),
-          secondary: SizedBox.square(
-            dimension: 32,
-            child: currentImage.image.image(),
-          ),
-          controlAffinity: ListTileControlAffinity.trailing,
-          value: item,
+        return RadioTile(
+          currentImage: currentImage,
+          item: item,
+          currentGroupValue: currentGroupValue,
           onChanged: (value) {
             Navigator.of(context).pop(value);
           },
-          groupValue: currentGroupValue,
         );
       },
       separatorBuilder: (context, index) => const SizedBox(height: 16),
     ),
+  );
+}
+
+class RadioTile extends StatelessWidget {
+  const RadioTile({
+    required this.currentImage,
+    required this.item,
+    required this.currentGroupValue,
+    required this.onChanged,
+    super.key,
+  });
+
+  final CurrencyInfo currentImage;
+  final RecommendationCurrency item;
+  final RecommendationCurrency currentGroupValue;
+  final ValueChanged<RecommendationCurrency?>? onChanged;
+
+  @override
+  Widget build(BuildContext context) => RadioListTile(
+    title: Text(
+      currentImage.name,
+      style: Theme.of(
+        context,
+      ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600),
+    ),
+    subtitle: Text(
+      currentImage.description,
+      style: Theme.of(context).textTheme.bodyMedium,
+    ),
+    secondary: SizedBox.square(
+      dimension: 32,
+      child: currentImage.image.image(),
+    ),
+    controlAffinity: ListTileControlAffinity.trailing,
+    value: item,
+    onChanged: onChanged,
+    groupValue: currentGroupValue,
   );
 }
