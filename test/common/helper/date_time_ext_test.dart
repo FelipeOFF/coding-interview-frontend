@@ -29,7 +29,7 @@ void main() {
 
       test('should return justNow when date is in the past', () {
         // Arrange
-        final pastDate = DateTime.now().subtract(Duration(minutes: 5));
+        final pastDate = DateTime.now().subtract(const Duration(minutes: 5));
         when(() => mockAppS.justNow).thenReturn('Just now');
 
         // Act
@@ -42,7 +42,9 @@ void main() {
 
       test('should prioritize hours over minutes when both are present', () {
         // Arrange
-        final futureDate = DateTime.now().add(Duration(hours: 3, minutes: 30));
+        final futureDate = DateTime.now().add(
+          const Duration(hours: 3, minutes: 30),
+        );
         when(() => mockAppS.hour(3)).thenReturn('3 hours');
 
         // Act
@@ -57,7 +59,7 @@ void main() {
       test('should prioritize minutes over seconds when both are present', () {
         // Arrange
         final futureDate = DateTime.now().add(
-          Duration(minutes: 2, seconds: 30),
+          const Duration(minutes: 2, seconds: 30),
         );
         when(() => mockAppS.min(2)).thenReturn('2 minutes');
 
@@ -74,7 +76,9 @@ void main() {
     group('Boundary testing', () {
       test('should handle 23 hours 59 minutes as hours', () {
         // Arrange
-        final futureDate = DateTime.now().add(Duration(hours: 23, minutes: 59));
+        final futureDate = DateTime.now().add(
+          const Duration(hours: 23, minutes: 59),
+        );
         when(() => mockAppS.hour(23)).thenReturn('23 hours');
 
         // Act
@@ -89,7 +93,7 @@ void main() {
     group('Edge cases and error scenarios', () {
       test('should handle negative time differences (past dates)', () {
         // Arrange
-        final pastDate = DateTime.now().subtract(Duration(hours: 5));
+        final pastDate = DateTime.now().subtract(const Duration(hours: 5));
         when(() => mockAppS.justNow).thenReturn('Just now');
 
         // Act
@@ -102,7 +106,9 @@ void main() {
 
       test('should handle leap seconds and milliseconds', () {
         // Arrange
-        final futureDate = DateTime.now().add(Duration(milliseconds: 999));
+        final futureDate = DateTime.now().add(
+          const Duration(milliseconds: 999),
+        );
         when(() => mockAppS.justNow).thenReturn('Just now');
 
         // Act
