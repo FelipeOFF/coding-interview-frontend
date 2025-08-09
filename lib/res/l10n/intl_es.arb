@@ -3,14 +3,14 @@
   "ops": "Ups...",
   "somethingWrongHappenedPleaseTryAgainLater": "Algo salió mal, por favor inténtalo de nuevo más tarde",
   "nothing": "-",
-  "close": "Close",
+  "close": "Cerrar",
   "have": "TENGO",
   "want": "QUIERO",
-  "enterYourAmount": "Enter your amount",
-  "pleaseEnterAmount": "Please enter a valid amount",
-  "estimateTax": "Estimate Tax",
-  "youWillReceive": "You will receive",
-  "estimateTime": "Estimate Time",
+  "enterYourAmount": "Ingresa tu cantidad",
+  "pleaseEnterAmount": "Por favor ingresa una cantidad válida",
+  "estimateTax": "Tasa Estimado",
+  "youWillReceive": "Recibirás",
+  "estimateTime": "Tiempo Estimado",
   "approximatelyEqual": "≈ 20.00 VES",
   "@approximatelyEqual": {
     "description": "This is an example of approximately equal",
@@ -32,7 +32,7 @@
       }
     }
   },
-  "change": "Change",
+  "change": "Cambiar",
   "bolvaresBs": "Bolívares (Bs)",
   "tetherUsdt": "Tether (USDT)",
   "usdCoinUsdc": "USD Coin (USDC)",
@@ -43,7 +43,7 @@
   "cripto": "Cripto",
   "usdt": "USDT",
   "usdc": "USDC",
-  "day": "{x, plural, one{{x} Day} other{{x} Days}}",
+  "day": "{x, plural, one{{x} Día} other{{x} Días}}",
   "@day": {
     "description": "This is an example of day",
     "placeholders": {
@@ -52,7 +52,7 @@
       }
     }
   },
-  "hour": "{x, plural, one{{x} Hour} other{{x} Hours}}",
+  "hour": "{x, plural, one{{x} Hora} other{{x} Horas}}",
   "@hour": {
     "placeholders": {
       "x": {
@@ -68,7 +68,7 @@
       }
     }
   },
-  "sec": "{x, plural, one{{x} Sec} other{{x} Sec}}",
+  "sec": "{x, plural, one{{x} Seg} other{{x} Seg}}",
   "@sec": {
     "placeholders": {
       "x": {
@@ -76,10 +76,10 @@
       }
     }
   },
-  "justNow": "Just now",
+  "justNow": "Ahora mismo",
   "defaultTaxValue": "0.00",
-  "yourTransactionHasBeenCompletedSuccessfully": "Your transaction has been completed successfully.",
+  "yourTransactionHasBeenCompletedSuccessfully": "Tu transacción se ha completado exitosamente.",
   "ok": "OK",
-  "success": "Success!",
-  "amountMustBeGreaterThan0": "Amount must be greater than 0"
+  "success": "¡Éxito!",
+  "amountMustBeGreaterThan0": "La cantidad debe ser mayor que 0"
 }

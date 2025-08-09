@@ -25,39 +25,39 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m1(x) => "≈ ${x}";
 
   static String m2(x) =>
-      "${Intl.plural(x, one: '${x} Day', other: '${x} Days')}";
+      "${Intl.plural(x, one: '${x} Día', other: '${x} Días')}";
 
   static String m3(x) =>
-      "${Intl.plural(x, one: '${x} Hour', other: '${x} Hours')}";
+      "${Intl.plural(x, one: '${x} Hora', other: '${x} Horas')}";
 
   static String m4(x) =>
       "${Intl.plural(x, one: '${x} Min', other: '${x} Min')}";
 
   static String m5(x) =>
-      "${Intl.plural(x, one: '${x} Sec', other: '${x} Sec')}";
+      "${Intl.plural(x, one: '${x} Seg', other: '${x} Seg')}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "amountMustBeGreaterThan0": MessageLookupByLibrary.simpleMessage(
-      "Amount must be greater than 0",
+      "La cantidad debe ser mayor que 0",
     ),
     "approximatelyEqual": m0,
     "approximatelyEqualUniqValue": m1,
     "bolvaresBs": MessageLookupByLibrary.simpleMessage("Bolívares (Bs)"),
-    "change": MessageLookupByLibrary.simpleMessage("Change"),
-    "close": MessageLookupByLibrary.simpleMessage("Close"),
+    "change": MessageLookupByLibrary.simpleMessage("Cambiar"),
+    "close": MessageLookupByLibrary.simpleMessage("Cerrar"),
     "cripto": MessageLookupByLibrary.simpleMessage("Cripto"),
     "day": m2,
     "defaultTaxValue": MessageLookupByLibrary.simpleMessage("0.00"),
     "enterYourAmount": MessageLookupByLibrary.simpleMessage(
-      "Enter your amount",
+      "Ingresa tu cantidad",
     ),
-    "estimateTax": MessageLookupByLibrary.simpleMessage("Estimate Tax"),
-    "estimateTime": MessageLookupByLibrary.simpleMessage("Estimate Time"),
+    "estimateTax": MessageLookupByLibrary.simpleMessage("Tasa Estimado"),
+    "estimateTime": MessageLookupByLibrary.simpleMessage("Tiempo Estimado"),
     "fiat": MessageLookupByLibrary.simpleMessage("FIAT"),
     "have": MessageLookupByLibrary.simpleMessage("TENGO"),
     "hour": m3,
-    "justNow": MessageLookupByLibrary.simpleMessage("Just now"),
+    "justNow": MessageLookupByLibrary.simpleMessage("Ahora mismo"),
     "min": m4,
     "nothing": MessageLookupByLibrary.simpleMessage("-"),
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
@@ -66,7 +66,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "\'Peso Colombiano (COL\$)",
     ),
     "pleaseEnterAmount": MessageLookupByLibrary.simpleMessage(
-      "Please enter a valid amount",
+      "Por favor ingresa una cantidad válida",
     ),
     "realBrasileiroR": MessageLookupByLibrary.simpleMessage(
       "\'Real Brasileiro (R\$)",
@@ -77,16 +77,16 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Algo salió mal, por favor inténtalo de nuevo más tarde",
         ),
-    "success": MessageLookupByLibrary.simpleMessage("Success!"),
+    "success": MessageLookupByLibrary.simpleMessage("¡Éxito!"),
     "tetherUsdt": MessageLookupByLibrary.simpleMessage("Tether (USDT)"),
     "usdCoinUsdc": MessageLookupByLibrary.simpleMessage("USD Coin (USDC)"),
     "usdc": MessageLookupByLibrary.simpleMessage("USDC"),
     "usdt": MessageLookupByLibrary.simpleMessage("USDT"),
     "want": MessageLookupByLibrary.simpleMessage("QUIERO"),
-    "youWillReceive": MessageLookupByLibrary.simpleMessage("You will receive"),
+    "youWillReceive": MessageLookupByLibrary.simpleMessage("Recibirás"),
     "yourTransactionHasBeenCompletedSuccessfully":
         MessageLookupByLibrary.simpleMessage(
-          "Your transaction has been completed successfully.",
+          "Tu transacción se ha completado exitosamente.",
         ),
   };
 }
