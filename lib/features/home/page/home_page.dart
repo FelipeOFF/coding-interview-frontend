@@ -1,10 +1,12 @@
 import 'package:coding_interview_frontend/common/base/base_state_page.dart';
+import 'package:coding_interview_frontend/common/dialog/app_dialog.dart';
 import 'package:coding_interview_frontend/common/helper/money_value_formatter.dart';
 import 'package:coding_interview_frontend/features/home/controller/home_controller.dart';
 import 'package:coding_interview_frontend/features/home/widgets/custom_paint_background.dart';
 import 'package:coding_interview_frontend/features/home/widgets/swap_input.dart';
 import 'package:coding_interview_frontend/gen/assets.gen.dart';
 import 'package:coding_interview_frontend/generated/l10n.dart';
+import 'package:coding_interview_frontend/model/recommendations/recommendation_currency.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -17,6 +19,15 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends BaseStatePage<HomePage, HomeController> {
   final GlobalKey<FormState> _formKey = GlobalKey();
+
+  final Map<RecommendationCurrency, AssetGenImage> _currencyImages = {
+    RecommendationCurrency.brl: Assets.fiatCurrencies.brl,
+    RecommendationCurrency.cop: Assets.fiatCurrencies.cop,
+    RecommendationCurrency.pen: Assets.fiatCurrencies.pen,
+    RecommendationCurrency.ves: Assets.fiatCurrencies.ves,
+    RecommendationCurrency.tatumTronUSDT: Assets.criptoCurrencies.tatumTronUsdt,
+    RecommendationCurrency.tatumTronUSDC: Assets.criptoCurrencies.tatumTronUsdt,
+  };
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -52,6 +63,33 @@ class _HomePageState extends BaseStatePage<HomePage, HomeController> {
                             leftCoin: 'USDT',
                             rightCoin: 'VES',
                             onSwap: print,
+                            onLeft: () async {
+                              final recommendationCurrency =
+                                  await AppDialog.show<RecommendationCurrency>(
+                                    context: context,
+                                    title: 'FIAT',
+                                    backgroundColor: Colors.white,
+                                    scrollable: true,
+                                    child: ListView.builder(
+                                      itemCount:
+                                          RecommendationCurrency.fiat.length,
+                                      itemBuilder: (context, index) {
+                                        final item =
+                                            RecommendationCurrency.fiat[index];
+                                        final currentImage =
+                                            _currencyImages[item];
+                                        return ListTile(
+                                          title: Text(item.name),
+                                          leading: currentImage?.image(),
+                                          onTap: () {
+                                            Navigator.of(context).pop(item);
+                                          },
+                                        );
+                                      },
+                                    ),
+                                  );
+                            },
+                            onRight: () {},
                           ),
                           const SizedBox(height: 8),
                           TextFormField(

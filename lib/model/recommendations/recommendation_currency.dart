@@ -22,9 +22,14 @@ enum RecommendationCurrency {
   final String value;
 
   // Helper methods para identificar o tipo
-  List<RecommendationCurrency> get fiat => [brl, cop, pen, ves];
-  List<RecommendationCurrency> get crypto => [tatumTronUSDT, tatumTronUSDC];
+  static List<RecommendationCurrency> get fiat => [brl, cop, pen, ves];
+
+  static List<RecommendationCurrency> get crypto => [
+    tatumTronUSDT,
+    tatumTronUSDC,
+  ];
 
   bool get isFiat => fiat.contains(this);
+
   bool get isCrypto => crypto.contains(this);
 }

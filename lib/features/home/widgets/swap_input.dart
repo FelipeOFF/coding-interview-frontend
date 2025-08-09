@@ -14,6 +14,8 @@ class SwapInput extends StatefulWidget {
     required this.rightCoin,
     super.key,
     this.onSwap,
+    this.onLeft,
+    this.onRight,
   });
 
   final String leftTitle;
@@ -23,6 +25,8 @@ class SwapInput extends StatefulWidget {
   final Widget rightIcon;
   final String rightCoin;
   final void Function(bool swap)? onSwap;
+  final VoidCallback? onLeft;
+  final VoidCallback? onRight;
 
   @override
   State<SwapInput> createState() => _SwapInputState();
@@ -114,6 +118,8 @@ class _SwapInputState extends State<SwapInput>
                 leftText: widget.leftCoin,
                 rightIcon: widget.rightIcon,
                 rightText: widget.rightCoin,
+                onLeft: widget.onLeft,
+                onRight: widget.onRight,
                 centerIcon: const Icon(
                   Icons.swap_horiz,
                   color: Colors.white,
@@ -141,13 +147,17 @@ class _RowContent extends StatelessWidget {
     required this.leftText,
     required this.rightText,
     required this.centerIcon,
+    this.onLeft,
+    this.onRight,
   });
 
   final double circleSize;
   final double innerHPad;
   final double rotation;
   final double slideT;
+  final VoidCallback? onLeft;
   final VoidCallback onSwap;
+  final VoidCallback? onRight;
   final Color yellow;
   final Widget leftIcon;
   final String leftText;
@@ -190,12 +200,15 @@ class _RowContent extends StatelessWidget {
                   offset: Offset(leftX, 0),
                   child: Align(
                     alignment: Alignment.centerLeft,
-                    child: SizedBox(
-                      width: double.infinity,
-                      child: _SelectorTile(
-                        leading: leftIcon,
-                        title: leftText,
-                        alignRight: false,
+                    child: GestureDetector(
+                      onTap: onLeft,
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: _SelectorTile(
+                          leading: leftIcon,
+                          title: leftText,
+                          alignRight: false,
+                        ),
                       ),
                     ),
                   ),
@@ -232,12 +245,15 @@ class _RowContent extends StatelessWidget {
                   offset: Offset(rightX, 0),
                   child: Align(
                     alignment: Alignment.centerLeft,
-                    child: SizedBox(
-                      width: double.infinity,
-                      child: _SelectorTile(
-                        leading: rightIcon,
-                        title: rightText,
-                        alignRight: true,
+                    child: GestureDetector(
+                      onTap: onRight,
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: _SelectorTile(
+                          leading: rightIcon,
+                          title: rightText,
+                          alignRight: true,
+                        ),
                       ),
                     ),
                   ),

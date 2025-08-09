@@ -15,6 +15,7 @@ class AppDialog extends StatelessWidget {
     this.showDragHandle = true,
     this.contentPadding = const EdgeInsets.all(16.0),
     this.isDismissible = true,
+    this.showDivider = false,
   }) : assert(
          title != null || titleWidget != null,
          'Either title or titleWidget must be provided',
@@ -43,6 +44,8 @@ class AppDialog extends StatelessWidget {
   final EdgeInsets contentPadding;
 
   final bool isDismissible;
+
+  final bool showDivider;
 
   @override
   Widget build(BuildContext context) {
@@ -131,7 +134,7 @@ class AppDialog extends StatelessWidget {
               ),
         ),
 
-      if (title != null || titleWidget != null)
+      if (showDivider && (title != null || titleWidget != null))
         Divider(height: 1, thickness: 1, color: Colors.grey[300]),
     ],
   );
