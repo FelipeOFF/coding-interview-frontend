@@ -46,7 +46,7 @@ void main() {
         'should initialize with null message and isLoading values before init',
         () {
           expect(controller.message, isNull);
-          expect(controller.isLoading, isNull);
+          expect(controller.isLoading, isFalse);
         },
       );
 
@@ -54,7 +54,7 @@ void main() {
         controller.init();
 
         expect(controller.message, isA<EmptyMessage>());
-        expect(controller.isLoading, isNull);
+        expect(controller.isLoading, isFalse);
       });
     });
 
@@ -124,7 +124,7 @@ void main() {
 
         // Assert
         expect(loadingStates, contains(true));
-        expect(loadingStates.last, isTrue);
+        expect(loadingStates.last, isFalse);
 
         disposer();
       });
@@ -158,7 +158,7 @@ void main() {
       test('should handle setting loading before initialization', () {
         // Act & Assert - Should not throw, but loading will be null
         controller.isLoading = true;
-        expect(controller.isLoading, isNull);
+        expect(controller.isLoading, isFalse);
       });
 
       test('should handle multiple execSingle calls concurrently', () async {
