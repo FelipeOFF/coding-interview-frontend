@@ -80,7 +80,10 @@ class HomeController extends BaseController {
 
   bool get switched => _switched.value;
 
-  set switched(bool value) => _switched.value = value;
+  set switched(bool value) {
+    _switched.value = value;
+    fetchChange();
+  }
 
   double get amount => _amount.value;
 
