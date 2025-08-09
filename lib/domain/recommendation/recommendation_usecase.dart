@@ -25,12 +25,15 @@ class RecommendationUseCase
     final exchangeRate = double.tryParse(fiatToCryptoExchangeRate) ?? 1.0;
     final amount = param.amount;
 
+    final totalTax = type == 0
+        ? amount * exchangeRate * 0.01
+        : exchangeRate / amount * 0.01;
     final totalWithTax = type == 0
         ? amount * exchangeRate
         : amount / exchangeRate;
 
     return RecommendationModel(
-      totalTax: exchangeRate.toAppMoneyFraction,
+      totalTax: totalTax.toAppMoneyFraction,
       totalAmount: totalWithTax.toAppMoneyFraction,
       estToFinish: DateTime.now().add(
         Duration(seconds: Random().nextInt(3600) + 60),

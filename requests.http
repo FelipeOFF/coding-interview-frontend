@@ -10,7 +10,3 @@ GET https://74j6q7lg6a.execute-api.eu-west-1.amazonaws.com/stage/currencies
 GET {{baseUrl}}/orderbook/public/recommendations?type=0&cryptoCurrencyId=TATUM-TRON-USDT&fiatCurrencyId=VES&amount=5&
     amountCurrencyId=TATUM-TRON-USDT
 Content-Type: application/json
-
-### Test
-GET http://192.168.0.185:3000/stage/orderbook/public/recommendations?type=0&cryptoCurrencyId=TATUM-TRON-USDC&
-    fiatCurrencyId=VES&amount=100&amountCurrencyId=TATUM-TRON-USDC

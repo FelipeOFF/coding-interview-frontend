@@ -8,13 +8,11 @@ import 'package:rx_notifier/rx_notifier.dart';
 class TextFieldAmount extends StatelessWidget {
   const TextFieldAmount({
     required this.controller,
-    required this.prefixTitle,
     required this.errorText,
     super.key,
   });
 
   final HomeController controller;
-  final String prefixTitle;
   final String errorText;
 
   @override
@@ -61,12 +59,16 @@ class TextFieldAmount extends StatelessWidget {
             child: Center(
               child: Padding(
                 padding: const EdgeInsets.only(left: 12.0),
-                child: Text(
-                  prefixTitle,
-                  style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                    fontSize: 12,
-                    color: Theme.of(context).colorScheme.primary,
-                  ),
+                child: RxBuilder(
+                  builder: (context) => Text(
+                      controller
+                          .getCurrencyInfoByHave
+                          .name,
+                      style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                        fontSize: 12,
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                    )
                 ),
               ),
             ),

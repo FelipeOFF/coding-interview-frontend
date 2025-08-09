@@ -50,9 +50,6 @@ class _HomePageState extends BaseStatePage<HomePage, HomeController> {
                           const SizedBox(height: 8),
                           TextFieldAmount(
                             controller: controller,
-                            prefixTitle: controller
-                                .getCurrencyInfoByHave()
-                                .name,
                             errorText: AppS.of(context).pleaseEnterAmount,
                           ),
                           const SizedBox(height: 8),
@@ -101,7 +98,7 @@ class DataValue extends StatelessWidget {
             value: controller.result?.totalTax != null
                 ? AppS.of(context).approximatelyEqual(
                     controller.result!.totalTax,
-                    controller.getCurrencyInfoByWant().name,
+                    controller.getCurrencyInfoByWant.name,
                   )
                 : AppS.of(context).nothing,
           ),
@@ -111,7 +108,7 @@ class DataValue extends StatelessWidget {
             value: controller.result?.totalAmount != null
                 ? AppS.of(context).approximatelyEqual(
                     controller.result!.totalAmount,
-                    controller.getCurrencyInfoByWant().name,
+                    controller.getCurrencyInfoByWant.name,
                   )
                 : AppS.of(context).nothing,
           ),

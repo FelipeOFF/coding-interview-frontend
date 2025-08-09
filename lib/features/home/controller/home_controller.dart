@@ -103,10 +103,10 @@ class HomeController extends BaseController {
   CurrencyInfo getCurrencyInfoBySelected(RecommendationCurrency currency) =>
       _currencyImages.firstWhere((element) => element.currency == currency);
 
-  CurrencyInfo getCurrencyInfoByHave() =>
+  CurrencyInfo get getCurrencyInfoByHave =>
       getCurrencyInfoBySelected(switched ? wantCurrency : haveCurrency);
 
-  CurrencyInfo getCurrencyInfoByWant() =>
+  CurrencyInfo get getCurrencyInfoByWant =>
       getCurrencyInfoBySelected(switched ? haveCurrency : wantCurrency);
 
   Timer? _timer;
@@ -128,7 +128,7 @@ class HomeController extends BaseController {
       amount: amount,
       cryptoCurrencyId: haveCurrency,
       fiatCurrencyId: wantCurrency,
-      amountCurrencyId: !switched ? haveCurrency : wantCurrency,
+      amountCurrencyId: haveCurrency,
     );
     result = await exec<RecommendationReq, RecommendationModel?>(
       recommendationReq,
